@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Manufacturing @ IISc</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #ed2024;
+      --accent: #49bc39;
+      --light: #f9f9f9;
+      --dark: #222;
+      --text: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+    }
+	.news-ribbon {
+	  position: relative;
+	  height: 30px; /* Set your desired fixed height */
+	  background-color: var(--primary); /* Background color for the ribbon */
+	  color: white; /* Text color */
+	  overflow: hidden; /* Hide overflowing text */
+	}
+
+	.news-ribbon p {
+	  position: absolute;
+	  white-space: nowrap; /* Prevent text from wrapping */
+	  animation: slide-left 20s linear infinite; /* Apply animation */
+	  padding-left: 100%; /* Start text from outside the container */
+	}
+
+	@keyframes slide-left {
+	  0% {
+		transform: translateX(100%); /* Start off-screen to the right */
+	  }
+	  100% {
+		transform: translateX(-100%); /* Move off-screen to the left */
+	  }
+	}
+
+
+	nav.navbar {
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  padding: 1.2rem 2rem;
+	  background: white;
+	  position: sticky;
+	  top: 0;
+	  z-index: 999;
+	  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+	  border-bottom: 4px solid var(--secondary);
+	}
+
+	.nav-left {
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+	}
+
+	.nav-left .logo {
+	  height: 40px;
+	}
+
+	.site-title {
+	  font-weight: 700;
+	  font-size: 1.1rem;
+	  color: var(--primary);
+	}
+
+	.nav-menu {
+	  list-style: none;
+	  display: flex;
+	  gap: 25px;
+	  align-items: center;
+	}
+
+	.nav-menu li {
+	  position: relative;
+	}
+
+	.nav-menu a {
+	  text-decoration: none;
+	  color: var(--primary);
+	  font-weight: 600;
+	  padding: 0.5rem 1rem;
+	  border-radius: 5px;
+	  transition: 0.3s ease;
+	}
+
+	.nav-menu a:hover,
+	.nav-menu a.active {
+	  background-color: var(--accent);
+	  color: white;
+	}
+
+	/* Dropdown */
+	.has-dropdown:hover .dropdown {
+	  display: block;
+	}
+
+	.dropdown {
+	  display: none;
+	  position: absolute;
+	  top: 100%;
+	  left: 0;
+	  background: white;
+	  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	  border-radius: 5px;
+	  list-style: none;
+	  padding: 10px 0;
+	  min-width: 180px;
+	  z-index: 1000;
+	}
+
+	.dropdown li a {
+	  display: block;
+	  padding: 10px 20px;
+	  color: var(--primary);
+	  white-space: nowrap;
+	}
+
+	.dropdown li a:hover {
+	  background: var(--accent);
+	  color: white;
+	}
+
+	/* Mobile (optional toggle can be added) */
+	@media (max-width: 768px) {
+	  .nav-menu {
+		flex-wrap: wrap;
+		gap: 15px;
+	  }
+
+	  .site-title {
+		font-size: 1rem;
+	  }
+	}
+
+
+   header {
+	  height: 50vh;
+	  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+				  url('bg.jpg') center/cover no-repeat;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  color: white;
+	  text-align: center;
+	  padding: 0 20px;
+	  animation: slideShow 20s infinite ease-in-out; /* Animation for background slideshow */
+	}
+
+	/* Define the slideshow animation */
+	@keyframes slideShow {
+	  0% {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg');
+	  }
+	  25% {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg1.jpeg');
+	  }
+	  50% {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg');
+	  }
+	  75% {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg2.jpeg');
+	  }
+	  100% {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg');
+	  }
+	}
+
+
+	header h1 {
+	  font-size: 4rem; /* Larger, more professional font size */
+	  font-weight: 700; /* Bold for emphasis */
+	  padding: 20px 40px;
+	  border-radius: 10px;
+	  background-color: rgba(0, 0, 0, 0.3); /* Slight black background to enhance readability */
+	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+	  animation: fadeIn 1.5s ease-in-out;
+	}
+
+	header p {
+	  font-size: 1.5rem;
+	  font-weight: 300; /* Lighter weight for a professional feel */
+	  margin-top: 15px;
+	  color: rgba(255, 255, 255, 0.8); /* Slightly softer white for contrast */
+	}
+
+	/* Fade-in animation */
+	@keyframes fadeIn {
+	  0% { opacity: 0; }
+	  100% { opacity: 1; }
+	}
+
+    .container {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      animation: fadeIn 0.8s ease;
+    }
+	.container_alternative {
+      text-align: center;
+      margin: 3rem auto;
+      max-width: 900px;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--primary);
+      border-left: 6px solid var(--secondary);
+      padding-left: 15px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+	  background-color: #ffffff;
+	  padding: 2rem;
+	  border-radius: 12px;
+	  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+	  transition: transform 0.35s ease, box-shadow 0.35s ease;
+	  overflow: hidden;
+	  position: relative;
+	  isolation: isolate;
+	}
+
+	.card::before {
+	  content: "";
+	  position: absolute;
+	  inset: 0;
+	  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.02));
+	  z-index: -1;
+	}
+
+	.card:hover {
+	  transform: translateY(-6px);
+	  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+	}
+	/* Button Styling */
+	.btn {
+	  display: inline-block;
+	  margin-top: 1.5rem; /* Space between text and button */
+	  padding: 0.75rem 1.5rem; /* Comfortable padding */
+	  font-size: 1rem; /* Font size */
+	  font-weight: 600; /* Bold text for emphasis */
+	  color: #fff; /* White text for contrast */
+	  background-color: var(--primary); /* Vibrant purple color */
+	  border: none; /* No border */
+	  border-radius: 10px; /* Rounded edges for a pill-shaped button */
+	  text-decoration: none; /* Remove underline from links */
+	  text-align: center;
+	  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	}
+
+	/* Hover Effect */
+	.btn:hover {
+	  background-color: var(--accent); /* Darker shade for hover */
+	  transform: translateY(-2px); /* Slight lift effect */
+	  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+	}
+
+	/* Active State */
+	.btn:active {
+	  transform: translateY(0); /* Reset position on click */
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+	}
+    h3 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    .pillars-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .pillar-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      max-width: 280px;
+      flex: 1;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-5px);
+    }
+
+	.icon {
+	  font-size: 2.5rem;
+	  color: var(--primary); /* Bootstrap blue, change as needed */
+	  margin-bottom: 1rem;
+	}
+
+    .pill-title {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      color: var(--accent);
+    }
+
+    .pill-subtitle {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    footer {
+	  background: var(--primary);
+	  color: white;
+	  margin-top: 0px;
+	}
+	footer a {
+	  color: var(--light);
+	}
+	footer a:hover {
+	  color: var(--accent);
+	}
+	footer h3 {
+	  font-size: 1.2rem;
+	}
+
+
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+        padding: 15px 20px;
+      }
+    }
+	.guidelines-list {
+	  list-style: none;
+	  padding: 0;
+	  margin: 2rem auto;
+	  max-width: 1200px;
+	  text-align: left;
+	}
+
+	.guidelines-list li {
+	  display: flex;
+	  align-items: start;
+	  font-size: 1rem;
+	  margin: 1rem 0;
+	  line-height: 1.5;
+	  color: #444;
+	}
+
+	.guidelines-list i {
+	  color: var(--accent);
+	  margin-right: 0.75rem;
+	  font-size: 1.2rem;
+	  min-width: 20px;
+	}
+	.smart-intro {
+	  background-color: #f0f4f9;
+	  padding: 3rem 1rem;
+	  border-radius: 12px;
+	  margin: 2rem auto;
+	  max-width: 1200px;
+	}
+
+	.smart-content {
+	  display: flex;
+	  align-items: center;
+	  gap: 2rem;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	}
+
+	.smart-icon i {
+	  font-size: 3rem;
+	  color: var(--primary);
+	}
+
+	.smart-text {
+	  max-width: 600px;
+	}
+
+	.smart-text h3 {
+	  font-size: 2rem;
+	  margin-bottom: 0.5rem;
+	  color: #2c3e50;
+	}
+
+	.smart-text .lead {
+	  font-size: 1.1rem;
+	  color: #555;
+	  line-height: 1.6;
+	}
+	.welcome-body {
+	  font-size: 1.1rem;
+	  line-height: 1.8;
+	  color: #444;
+	  max-width: 1200px;
+	  margin: 0 auto;
+	}
+
+	.welcome-body ul {
+	  list-style: none;
+	  padding-left: 1.5rem;
+	  margin: 1.5rem 0;
+	}
+
+	.welcome-body ul li {
+	  position: relative;
+	  padding-left: 1.5rem;
+	  margin-bottom: 1rem;
+	}
+
+	.welcome-body ul li::before {
+	  content: '';
+	  position: absolute;
+	  left: 0;
+	  top: 0.9em;
+	  width: 10px;
+	  height: 10px;
+	  background-color: var(--accent);
+	  transform: translateY(-50%);
+	}
+	.scroll-top {
+	  position: fixed;
+	  bottom: 2rem;
+	  right: 2rem;
+	  width: 48px;
+	  height: 48px;
+	  background-color: var(--accent);
+	  color: #fff;
+	  border: none;
+	  border-radius: 50%;
+	  font-size: 1.25rem;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  cursor: pointer;
+	  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+	  z-index: 1000;
+	  transition: transform 0.3s ease, background-color 0.3s ease;
+	}
+
+	.scroll-top:hover {
+	  background-color: var(--primary); /* fallback darker tone */
+	  transform: translateY(-3px);
+	}
+
+	.scroll-top i {
+	  pointer-events: none;
+	}
+	.hidden {
+	  opacity: 0;
+	  pointer-events: none;
+	  transform: scale(0.8);
+	  transition: opacity 0.3s ease, transform 0.3s ease;
+	}
+
+	.faculty-showcase {
+	  text-align: center;
+	  padding: 4rem 1rem;
+	}
+
+	.faculty-showcase h2 {
+	  font-size: 2rem;
+	  margin-bottom: 2rem;
+	  color: #222;
+	}
+
+	.faculty-cards {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 2rem;
+	  justify-content: center;
+	}
+
+	.faculty-card {
+	  width: 220px;
+	  perspective: 1200px;
+	  display: flex;
+	  flex-direction: column;
+	}
+	.card-inner {
+	  background: #fff;
+	  border-radius: 12px;
+	  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+	  padding: 2rem 1rem 1.5rem;
+	  position: relative;
+	  overflow: hidden;
+	  transition: transform 0.4s ease;
+	  height: 100%;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: flex-start;
+	  min-height: 280px; /* Set a consistent height */
+	}
+
+
+
+	.card-inner:hover {
+	  transform: translateY(-10px);
+	}
+
+	.profile-pic {
+	  width: 120px;
+	  height: 120px;
+	  margin: 0 auto 1rem;
+	  border-radius: 50%;
+	  overflow: hidden;
+	  border: 4px solid var(--accent, #0077cc);
+	  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+	}
+
+	.profile-pic img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	}
+
+	.card-info {
+	  z-index: 2;
+	  position: relative;
+	  margin-top: 1rem;
+	  flex-grow: 1; /* Pushes hover bubble to bottom */
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: flex-start;
+	}
+
+	.card-info h3 {
+	  margin: 0.3rem 0;
+	  font-size: 1.1rem;
+	  color: #222;
+	}
+
+	.designation {
+	  font-size: 0.9rem;
+	  color: #666;
+	}
+
+	/* Creative hover effect */
+	.card-hover {
+	  position: absolute;
+	  bottom: -100%;
+	  left: 0;
+	  width: 100%;
+	  background: var(--primary);
+	  color: #fff;
+	  padding: 1rem;
+	  text-align: center;
+	  font-size: 0.9rem;
+	  line-height: 1.5;
+	  transition: bottom 0.4s ease;
+	  border-bottom-left-radius: 12px;
+	  border-bottom-right-radius: 12px;
+	}
+
+	.card-inner:hover .card-hover {
+	  bottom: 0;
+	}
+
+	/* Main hero content inside header */
+	.hero-text-content {
+	  z-index: 2;
+	  position: relative;
+	  max-width: 900px;
+	  padding: 1rem;
+	  text-align: center;
+	  animation: fadeIn 2s ease-in-out;
+	}
+
+	.hero-text-content h1 {
+	  font-size: 3.2rem;
+	  font-weight: 700;
+	  background-color: rgba(0, 0, 0, 0.3);
+	  padding: 20px 40px;
+	  border-radius: 10px;
+	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	}
+
+	.hero-text-content p {
+	  font-size: 1.4rem;
+	  margin-top: 1rem;
+	  color: rgba(255, 255, 255, 0.85);
+	}
+
+	/* CTA button */
+	html {
+	  scroll-behavior: smooth;
+	}
+	.hero-cta-button {
+	  display: inline-flex;  /* Use flexbox to align items horizontally */
+	  margin-top: 2rem;
+	  padding: 0.75rem 2rem;
+	  font-size: 1.1rem;
+	  font-weight: 500;
+	  border-radius: 50px;
+	  color: white;
+	  background-color: var(--accent, #00b4d8);
+	  text-decoration: none;
+	  align-items: center;  /* Vertically center text and icon */
+	  transition: all 0.3s ease-in-out;
+	}
+
+	.hero-cta-button:hover {
+	  background-color: var(--primary);
+	  transform: scale(1.05);
+	}
+
+	.hero-cta-button i {  /* Add styles for the icon */
+	  margin-left: 10px;
+	  font-size: 1.4rem;  /* Icon size */
+	  transition: transform 0.3s ease-in-out;
+	}
+
+	.hero-cta-button:hover i {
+	  transform: translateY(5px); /* Move the icon slightly down on hover */
+	}
+
+
+	/* Floating shapes */
+	.hero-floating-shapes {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 0;
+	  pointer-events: none;
+	}
+
+	.shape {
+	  position: absolute;
+	  opacity: 0.15;
+	  animation: float 10s ease-in-out infinite;
+	}
+
+	.shape.circle {
+	  width: 60px;
+	  height: 60px;
+	  background: #ffffff;
+	  border-radius: 50%;
+	  top: 25%;
+	  left: 10%;
+	}
+
+	.shape.square {
+	  width: 50px;
+	  height: 50px;
+	  background: #ffffff;
+	  top: 50%;
+	  left: 80%;
+	}
+
+	.shape.triangle {
+	  width: 0;
+	  height: 0;
+	  border-left: 30px solid transparent;
+	  border-right: 30px solid transparent;
+	  border-bottom: 50px solid #ffffff;
+	  top: 40%;
+	  left: 60%;
+	}
+
+	@keyframes fadeIn {
+	  from {
+		opacity: 0;
+		transform: translateY(30px);
+	  }
+	  to {
+		opacity: 1;
+		transform: translateY(0);
+	  }
+	}
+
+	@keyframes float {
+	  0%, 100% {
+		transform: translateY(0px);
+	  }
+	  50% {
+		transform: translateY(-20px);
+	  }
+	}
+
+
+	.partner-section {
+	  background-color: #f0f4f9; /* Light background for the section */
+	  padding: 3rem 0;           /* Top and bottom padding */
+	  position: relative;        /* To position the card relative to the section */
+	  text-align: center;        /* Center content */
+	}
+
+	.partner-card {
+	  background-color: #fff;    /* White card background */
+	  padding: 2rem;             /* Padding inside the card */
+	  max-width: 1200px;         /* Max width for the card */
+	  margin: 0 auto;            /* Center the card horizontally */
+	  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);  /* Soft shadow for the hanging effect */
+	  border-radius: 15px;       /* Rounded corners for the card */
+	  position: relative;        /* To position it dynamically */
+	  top: -70px;                /* Make the card "hang" above the section */
+	}
+
+	h4 {
+	  font-size: 2rem;
+	  font-weight: 600;
+	  color: #333;
+	  margin-bottom: 1.5rem;
+	  position: relative;
+	}
+
+	h4::after {
+	  content: '';
+	  display: block;
+	  width: 100px;
+	  height: 5px;
+	  background-color: var(--secondary);
+	  margin: 0.5rem auto;
+	  transition: width 0.3s ease;
+	  transform-origin: center; /* Ensures it expands equally from center */
+	}
+
+	h4:hover::after {
+	  width: 160px; /* Or any desired increased length */
+	}
+
+	.partner-logos {
+	  display: grid;
+	  grid-auto-flow: row;                          /* default */
+	  grid-template-columns: repeat(auto-fit, 150px); /* fixed-width items */
+	  justify-content: center;                     /* center the entire grid block */
+	  gap: 2rem;
+	}
+
+
+	.partner-logos img {
+	  max-width: 100%;           /* Ensure images don't stretch */
+	  max-height: 80px;          /* Limit height for logos */
+	  object-fit: contain;       /* Maintain aspect ratio of logos */
+	  transition: transform 0.3s ease-in-out; /* Add subtle hover effect */
+	}
+
+	.partner-logos img:hover {
+	  transform: scale(1.05);    /* Zoom effect on hover */
+	}
+
+
+  </style>
+</head>
+<body>
+	<div class="news-ribbon">
+	  <p>🚨 Recent News Update: Our new Industry 4.0 research project has just launched at IISc! 🚨</p>
+	</div>
+
+	<!-- NAVBAR -->
+	<nav class="navbar">
+	  <div class="nav-left">
+		<img src="i4.0@IISc.png" alt="Logo" class="logo">
+		<span class="site-title">I4.0India@IISc</span>
+	  </div>
+	  <ul class="nav-menu">
+		<li><a href="#" onclick="loadPage('home', this)">Home</a></li>
+		<li class="has-dropdown">
+		  <a href="#">About</a>
+		  <ul class="dropdown">
+			<li><a href="#" onclick="loadPage('overview', this)">Overview</a></li>
+			<li><a href="#" onclick="loadPage('objectives', this)">Objectives</a></li>
+		  </ul>
+		</li>
+		<li><a href="#" onclick="loadPage('features', this)">Features</a></li>
+		<li class="has-dropdown">
+		  <a href="#">Programs</a>
+		  <ul class="dropdown">
+			<li><a href="#" onclick="loadPage('ongoing', this)">Ongoing</a></li>
+			<li><a href="#" onclick="loadPage('past', this)">Past</a></li>
+		  </ul>
+		</li>
+		<li><a href="#" onclick="loadPage('people', this)">People</a></li>
+		<li><a href="#" onclick="loadPage('contact', this)">Contact</a></li>
+	  </ul>
+	</nav>
+
+	<header>
+	  <div class="hero-floating-shapes">
+		<span class="shape circle"></span>
+		<span class="shape triangle"></span>
+		<span class="shape square"></span>
+	  </div>
+
+	  <div class="hero-text-content">
+		<h1>I4.0India@IISc</h1>
+		<p>Industry 4.0 Initiative at the Indian Institute of Science</p>
+		<a href="#welcome" class="hero-cta-button">Explore More <i class="fas fa-chevron-down"></i></a>
+	  </div>
+	</header>
+
+  <div id="main-content">
+    <!-- Dynamic content loads here -->
+  </div>
+	<button class="scroll-top hidden" onclick="scrollToTop()" aria-label="Scroll to top">
+	  <i class="fas fa-chevron-up"></i>
+	</button>
+
+
+  <footer>
+	  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+		
+		<!-- Contact Info -->
+		<div style="flex: 1 1 250px;">
+		  <h3 style="color: #fff; margin-bottom: 15px;">Contact Us</h3>
+		  <p style="margin-bottom: 8px;">Department of Design and Manufacturing</p>
+		  <p style="margin-bottom: 8px;">Indian Institute of Science</p>
+		  <p style="margin-bottom: 8px;">Bangalore – 560012, Karnataka, INDIA</p>
+		  <p style="margin-bottom: 8px;">Email: <a href="mailto:chair.dm@iisc.ac.in">chair.dm@iisc.ac.in</a></p>
+		  <p>Phone: +91-80-2293-XXXX</p>
+		</div>
+
+		<!-- Quick Links -->
+		<div style="flex: 1 1 200px;">
+		  <h3 style="color: #fff; margin-bottom: 15px;">Quick Links</h3>
+		  <ul style="list-style: none; padding: 0;">
+			<li><a href="#" onclick="loadPage('home', this)" style="color: #ccc; text-decoration: none;">Home</a></li>
+			<li><a href="#" onclick="loadPage('about', this)" style="color: #ccc; text-decoration: none;">About</a></li>
+			<li><a href="#" onclick="loadPage('features', this)" style="color: #ccc; text-decoration: none;">Features</a></li>
+			<li><a href="#" onclick="loadPage('programs', this)" style="color: #ccc; text-decoration: none;">Programs</a></li>
+			<li><a href="#" onclick="loadPage('people', this)" style="color: #ccc; text-decoration: none;">People</a></li>
+			<li><a href="#" onclick="loadPage('contact', this)" style="color: #ccc; text-decoration: none;">Contact</a></li>
+		  </ul>
+		</div>
+
+		<!-- Map or Extra Info -->
+		<div style="flex: 1 1 250px;">
+		  <h3 style="color: #fff; margin-bottom: 15px;">Locate Us</h3>
+		  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.322361613911!2d77.56553077588771!3d13.015132113920744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17d38c0e294d%3A0x1adc73f47b7773c0!2sDepartment%20of%20Design%20and%20Manufacturing%20(DM)!5e0!3m2!1sen!2sin!4v1744615592395!5m2!1sen!2sin" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+
+	  </div>
+	  <div style="text-align: center; color: #bbb; padding: 20px; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1);">
+		&copy; 2025 I4.0India@IISc. All rights reserved.
+	  </div>
+	</footer>
+
+
+  <script>
+  // Prevent auto-scrolling on page load
+  window.addEventListener("load", function () {
+    // Check if there's a hash in the URL
+    if (window.location.hash) {
+      // Clear the hash so it doesn't automatically scroll
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
+  });
+	  const scrollBtn = document.querySelector(".scroll-top");
+
+	  window.addEventListener("scroll", () => {
+		if (window.scrollY > 200) {
+		  scrollBtn.classList.remove("hidden");
+		} else {
+		  scrollBtn.classList.add("hidden");
+		}
+	  });
+	  function scrollToTop() {
+		window.scrollTo({
+		  top: 0,
+		  behavior: 'smooth'
+		});
+	  }
+    const pages = {
+      home: `
+		<section class="container" id="welcome">
+			<h2>Welcome</h2>
+			<div class="welcome-body">
+			  <p>
+				Department of Design and Manufacturing, Indian Institute of Science, had initiated in 2014 India’s first indigenous smart factory platform. With funding from Department of Heavy Industries (DHI), Government of India under its SAMARTH Udyog Bharat 4.0 programme, this is turning into a complete factory testbed with two parts:
+			  </p>
+
+			  <ul>
+				<li>
+				  <strong>A labour-intensive toolroom</strong> with a connected set of legacy machines that represents the MSMEs of India, and
+				</li>
+				<li>
+				  <strong>An automation-intensive factory</strong> that integrates 3D (metal, polymer) printers, metal laser routers, 5 axis CNCs, using industrial robots, collaborative robots and automated guided vehicles.
+				</li>
+			  </ul>
+
+			  <p>
+				The aim is to demonstrate the power of smart and connected intelligence in enhancing quality, productivity, efficiency, flexibility, and sustainability for manufacturing across sectors and for research into factories of the future.
+			  </p>
+			</div>
+		</section>
+		<section class="smart-intro">
+		  <div class="smart-content">
+			<div class="smart-icon">
+			  <i class="fas fa-industry"></i>
+			</div>
+			<div class="smart-text">
+			  <h3>Manufacturing Made Smarter</h3>
+			  <p class="lead">
+				Combining manufacturing with smart systems and data analytics
+			  </p>
+			</div>
+		  </div>
+		</section>
+		<section class="container">
+		  <div class="pillars-grid">
+			<div class="pillar-card">
+			  <div class="icon"><i class="fas fa-microchip"></i></div>
+			  <h4 class="pill-title">Smart</h4>
+			  <p class="pill-subtitle">Instrumented Data</p>
+			</div>
+
+			<div class="pillar-card">
+			  <div class="icon"><i class="fas fa-leaf"></i></div>
+			  <h4 class="pill-title">Sustainable</h4>
+			  <p class="pill-subtitle">Minimise Energy Requirements</p>
+			</div>
+
+			<div class="pillar-card">
+			  <div class="icon"><i class="fas fa-hard-hat"></i></div>
+			  <h4 class="pill-title">Safe</h4>
+			  <p class="pill-subtitle">Improve Manufacturing Ergonomics</p>
+			</div>
+		  </div>
+		</section>
+		<section class="container">
+		  <h2>Mandated Guidelines for CEFC under SAMARTH Udyog</h2>
+		  <ul class="guidelines-list">
+			<li><i class="fas fa-bullhorn"></i> Awareness campaigns on Industry 4.0</li>
+			<li><i class="fas fa-chalkboard-teacher"></i> Training for Master Trainers</li>
+			<li><i class="fas fa-lightbulb"></i> Active Participation Provisions for Start-ups/Incubators</li>
+			<li><i class="fas fa-hands-helping"></i> Hand-holding of SMEs to implement Industry 4.0 projects (via consultancy services)</li>
+			<li><i class="fas fa-university"></i> Collaborating with neighbourhood universities for student training/internships</li>
+			<li><i class="fas fa-users"></i> Involving industry in SPV membership model for sustainability</li>
+			<li><i class="fas fa-network-wired"></i> Participating in government platforms for common Industry 4.0 agendas</li>
+			<li><i class="fas fa-recycle"></i> Making adequate provisions for e-waste management</li>
+			<li><i class="fas fa-cubes"></i> Involving as many clusters of Capital Goods as possible</li>
+		  </ul>
+		</section>
+
+		<section class="partner-section">
+		  <div class="partner-card">
+		  <h4>Our Partners</h4>
+			<div class="partner-logos">
+			  <img src="partner logos/DM_Logo.png">
+			  <img src="partner logos/Ministry_of_Heavy_Industries_India.svg.png">
+			  <img src="partner logos/tata-steel-logo.png">
+			  <!--<img src="partner logos/Toyota_logo_(Red).png">
+			  
+			   Add more logos as needed -->
+			</div>
+		  </div>
+		</section>
+
+      `,
+      about: `
+        <h2>About Us</h2>
+        <div class="card">
+          <p>The Smart Manufacturing initiative at IISc integrates mechanical, computer science, and design engineering. It is a leading node under the Samarth Udyog Bharat 4.0 mission, setting up a national testbed and teaching infrastructure.</p>
+        </div>
+      `,
+      features: `
+        <h2>Key Features</h2>
+        <div class="card-grid">
+          <div class="card"><strong>Smart:</strong><br>AI/ML, IoT, CPS in workflows</div>
+          <div class="card"><strong>Safe:</strong><br>Real-time monitoring & error prevention</div>
+          <div class="card"><strong>Sustainable:</strong><br>Energy & resource optimized systems</div>
+        </div>
+      `,
+      programs: `
+        <h2>Programs</h2>
+        <div class="card-grid">
+          <div class="card"><strong>M.Tech Program</strong><br>2-year full-time specialization in Smart Manufacturing</div>
+          <div class="card"><strong>PhD Research</strong><br>Focus on cyber-physical systems and intelligent automation</div>
+          <div class="card"><strong>Industry Training</strong><br>Hands-on workshops, certifications & upskilling</div>
+        </div>
+      `,
+      people: `
+		<section class="faculty-showcase container">
+			<div class="container">
+			<h4>Our Team</h4>
+				<p>Domain experts who lead the I4.oIndia@IISc initiative</p>
+			</div>
+		  <div class="faculty-cards">
+			<div class="faculty-card">
+			  <div class="card-inner">
+				<div class="profile-pic">
+				  <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Prof. XYZ">
+				</div>
+				<div class="card-info">
+				  <h3>Prof. XYZ</h3>
+				  <p class="designation">Lead Faculty, Mechanical Engineering</p>
+				</div>
+				<div class="card-hover">
+				  <p><strong>Research Area:</strong><br>Smart Manufacturing, CPS, Robotics</p>
+				</div>
+			  </div>
+			</div>
+
+			<div class="faculty-card">
+			  <div class="card-inner">
+				<div class="profile-pic">
+				  <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Prof. ABC">
+				</div>
+				<div class="card-info">
+				  <h3>Prof. ABC</h3>
+				  <p class="designation">Co-Lead, CSA Department</p>
+				</div>
+				<div class="card-hover">
+				  <p><strong>Research Area:</strong><br>AI for Industry, Embedded Systems</p>
+				</div>
+			  </div>
+			</div>
+
+			<div class="faculty-card">
+			  <div class="card-inner">
+				<div class="profile-pic">
+				  <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Prof. LMN">
+				</div>
+				<div class="card-info">
+				  <h3>Prof. LMN</h3>
+				  <p class="designation">Coordinator, PD&M</p>
+				</div>
+				<div class="card-hover">
+				  <p><strong>Research Area:</strong><br>Additive Manufacturing, PLM</p>
+				</div>
+			  </div>
+			</div>
+			<div class="faculty-card">
+			  <div class="card-inner">
+				<div class="profile-pic">
+				  <img src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="Prof. LMN">
+				</div>
+				<div class="card-info">
+				  <h3>Prof. LMN</h3>
+				  <p class="designation">Coordinator, PD&M</p>
+				</div>
+				<div class="card-hover">
+				  <p><strong>Research Area:</strong><br>Additive Manufacturing, PLM</p>
+				</div>
+			  </div>
+			</div>
+
+		  </div>
+		</section>
+      `,
+      contact: `
+        <h2>Contact Us</h2>
+        <div class="card">
+          <p>Email: <a href="mailto:smartmfgiisc@iisc.ac.in">smartmfgiisc@iisc.ac.in</a></p>
+          <p>Phone: +91-80-2293-XXXX</p>
+          <p>Location: Demo & Development Cell, Department of Mechanical Engineering, IISc Bangalore</p>
+        </div>
+      `
+    };
+
+    function loadPage(page, el) {
+      document.getElementById('main-content').innerHTML = pages[page];
+
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // Load default
+    loadPage('home', document.querySelector('nav a.active'));
+  </script>
+</body>
+</html>
