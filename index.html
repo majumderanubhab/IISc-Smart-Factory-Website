@@ -1351,13 +1351,13 @@
 		// Apply active styling to clicked card
 		clickedCard.style.border = '2px solid #333';
 	}
-	function loadPDF2(pdfPath) {
+	function loadPDF2(clickedCard, pdfPath) {
 		const iframe2 = document.getElementById('pdfViewer2');
 		iframe2.src = pdfPath + '#navpanes=0';
 		iframe2.style.display = 'block';
 		// Remove active styling from all cards
-		const allCards = document.querySelectorAll('.card');
-		allCards.forEach(card => {
+		const allCards2 = document.querySelectorAll('.card');
+		allCards2.forEach(card => {
 		card.style.border = '0px solid #ccc';
 		});
 
