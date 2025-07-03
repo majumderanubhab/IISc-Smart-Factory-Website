@@ -171,16 +171,16 @@
 		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg');
 	  }
 	  25% {
-		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg1.jpeg');
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('PDFs/images/CEFC-Project-Report-E-Book-2.jpg');
 	  }
 	  50% {
-		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg');
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('PDFs/images/CEFC-Project-Report-E-Book.jpg');
 	  }
 	  75% {
 		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg2.jpeg');
 	  }
 	  100% {
-		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg');
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg1.jpeg');
 	  }
 	}
 
@@ -227,6 +227,15 @@
       color: var(--primary);
       border-left: 6px solid var(--secondary);
       padding-left: 15px;
+    }
+
+	.container h3 {
+      font-size: 1.5rem;
+	  margin-top: 30px;
+      margin-bottom: 10px;
+      color: var(--primary);
+      
+    
     }
 
     .card-grid {
@@ -779,6 +788,7 @@
 	}
 
 
+
   </style>
 </head>
 <body>
@@ -794,19 +804,20 @@
 	  </div>
 	  <ul class="nav-menu">
 		<li><a href="#" onclick="loadPage('home', this)">Home</a></li>
-		<li class="has-dropdown">
+		<!--<li class="has-dropdown">
 		  <a href="#">About</a>
 		  <ul class="dropdown">
 			<li><a href="#" onclick="loadPage('overview', this)">Overview</a></li>
 			<li><a href="#" onclick="loadPage('objectives', this)">Objectives</a></li>
 		  </ul>
-		</li>
-		<li><a href="#" onclick="loadPage('features', this)">Features</a></li>
+		</li>-->
+		<li><a href="#" onclick="loadPage('facilities', this)">Facilities & Services</a></li>
+		<li><a href="#" onclick="loadPage('offerings', this)">What do we offer?</a></li>
 		<li class="has-dropdown">
 		  <a href="#">Programs</a>
 		  <ul class="dropdown">
-			<li><a href="#" onclick="loadPage('ongoing', this)">Ongoing</a></li>
-			<li><a href="#" onclick="loadPage('past', this)">Past</a></li>
+			<li><a href="#" onclick="loadPage('ongoing', this)">CEFC Phase 2 (ongoing)</a></li>
+			<li><a href="#" onclick="loadPage('past', this)">CEFC Phase 1 (SmartFactory@IISc)</a></li>
 		  </ul>
 		</li>
 		<li><a href="#" onclick="loadPage('people', this)">People</a></li>
@@ -814,19 +825,7 @@
 	  </ul>
 	</nav>
 
-	<header>
-	  <div class="hero-floating-shapes">
-		<span class="shape circle"></span>
-		<span class="shape triangle"></span>
-		<span class="shape square"></span>
-	  </div>
-
-	  <div class="hero-text-content">
-		<h1>I4.0India@IISc</h1>
-		<p>Industry 4.0 Initiative at the Indian Institute of Science</p>
-		<a href="#welcome" class="hero-cta-button">Explore More <i class="fas fa-chevron-down"></i></a>
-	  </div>
-	</header>
+	
 
   <div id="main-content">
     <!-- Dynamic content loads here -->
@@ -854,7 +853,6 @@
 		  <h3 style="color: #fff; margin-bottom: 15px;">Quick Links</h3>
 		  <ul style="list-style: none; padding: 0;">
 			<li><a href="#" onclick="loadPage('home', this)" style="color: #ccc; text-decoration: none;">Home</a></li>
-			<li><a href="#" onclick="loadPage('about', this)" style="color: #ccc; text-decoration: none;">About</a></li>
 			<li><a href="#" onclick="loadPage('features', this)" style="color: #ccc; text-decoration: none;">Features</a></li>
 			<li><a href="#" onclick="loadPage('programs', this)" style="color: #ccc; text-decoration: none;">Programs</a></li>
 			<li><a href="#" onclick="loadPage('people', this)" style="color: #ccc; text-decoration: none;">People</a></li>
@@ -901,6 +899,19 @@
 	  }
     const pages = {
       home: `
+		<header>
+		<div class="hero-floating-shapes">
+		<span class="shape circle"></span>
+		<span class="shape triangle"></span>
+		<span class="shape square"></span>
+		</div>
+
+		<div class="hero-text-content">
+		<h1>I4.0India@IISc</h1>
+		<p>Industry 4.0 Initiative at the Indian Institute of Science</p>
+		<a href="#welcome" class="hero-cta-button">Explore More <i class="fas fa-chevron-down"></i></a>
+		</div>
+		</header>
 		<section class="container" id="welcome">
 			<h2>Welcome</h2>
 			<div class="welcome-body">
@@ -1077,6 +1088,239 @@
 		  </div>
 		</section>
       `,
+	  facilities:
+	  `
+		<section class="container">
+		<h2>Facilities at the Smart Factory</h2>
+		<p>The Smart Factory has the following machines, hardware, and software platforms:</p>
+
+		<div>
+			<h3><i class="fas fa-history"></i> Legacy Platform</h3>
+			<p>All machines below are instrumented with sensors and connected to their digital twins for real-time assessment of KPIs in quality, productivity, efficiency, flexibility, and sustainability:</p>
+			<ul class="guidelines-list">
+			<li><i class="fas fa-cogs"></i> Legacy lathes</li>
+			<li><i class="fas fa-cogs"></i> Legacy drilling machine</li>
+			<li><i class="fas fa-cogs"></i> Legacy milling machine</li>
+			<li><i class="fas fa-cogs"></i> Legacy grinding machine</li>
+			<li><i class="fas fa-user-cog"></i> Manual assembly station with XSENSE body-suit and assembly tools</li>
+			<li><i class="fas fa-search"></i> Manual assembly, measurement and inspection stations</li>
+			</ul>
+		</div>
+
+		<br>
+
+		<div>
+			<h3><i class="fas fa-robot"></i> Automated Platform</h3>
+			<p>All machines below are instrumented with sensors and connected to their digital twins for real-time assessment of KPIs in quality, productivity, efficiency, flexibility, and sustainability:</p>
+			<ul class="guidelines-list">
+			<li><i class="fas fa-cube"></i> Metal 3D Printer</li>
+			<li><i class="fas fa-cube"></i> Polymer 3D Printer</li>
+			<li><i class="fas fa-bolt"></i> Metal Laser Router</li>
+			<li><i class="fas fa-industry"></i> 5-Axis CNC Milling Machine</li>
+			<li><i class="fas fa-robot"></i> Industrial Robot</li>
+			<li><i class="fas fa-handshake"></i> Collaborative Robot</li>
+			<li><i class="fas fa-truck-moving"></i> Automated Guided Vehicle</li>
+			</ul>
+		</div>
+
+		<br>
+
+		<div>
+			<h3><i class="fas fa-digital-tachograph"></i> Digital Twin Platforms</h3>
+			<ul class="guidelines-list">
+			<li><i class="fas fa-drafting-compass"></i> NX CAD</li>
+			<li><i class="fas fa-project-diagram"></i> TeamCenter PLM</li>
+			<li><i class="fas fa-network-wired"></i> ThingWorx MES</li>
+			<li><i class="fas fa-database"></i> Dimomaint ERP</li>
+			</ul>
+		</div>
+		</section>
+
+		<section class="container">
+		<h2>Smart Factory Services</h2>
+		<iframe src="PDFs/Smart Factory Services.pdf#navpanes=0" width="100%" height="600" style="border: none;"></iframe>
+		</section>
+	  `,
+	  offerings:
+	  `
+		<section class="container">
+		<h2>M.Tech. in SMART MANUFACTURING</h2>
+		<div class="welcome-body">
+		<p>
+		We currently have 26 M.Tech. candidates with us, of which twenty were recruited this year. The
+		remaining six students have completed one year of training, were recruited last year and have
+		undergone 12 courses during this training.</p><p><br>
+		Started in 2019, the Master of Technology (MTech) programme is a two-year full-time graduate
+		programme that aims to impart education in smart manufacturing and development of new
+		manufacturing systems that are innovative and competitive. The programme aims at developing skills,
+		knowledge and aptitude among students so that they can have a 360 degree view of manufacturing
+		as "physical production at the centre of a wider manufacturing value chain" where "highly agile,
+		networked enterprises use information and analytics as skillfully as they employ talent and machinery
+		to deliver products and services to diverse global markets". The course is intended to create future
+		leaders in manufacturing who not only master the state of the art in current design, manufacturing,
+		technology, management and business aspects in the area of smart manufacturing, but also can usher
+		in manufacturing innovation in these through creative problem solving and integration of deep
+		technology from diverse, multiple disciplines.</p><p><br>
+		The MTech programme at CPDM is offered in partnership with faculty members from over twelve
+		departments of IISc, and is spread over four semesters and two summer terms. It contains a
+		challenging mix of courses and projects in materials, processes, digital manufacturing, design
+		methodology, CAD, PLM, sensors, mechatronics, AI, analytics, machine learning, operations
+		management, etc. to train students in the technology behind advanced manufacturing at various
+		scales of systems (process, machines, factories, enterprises) and production, as well as in innovating
+		new manufacturing processes and systems that blend the soft and the hard skills to solve problems
+		related to manufacturing industry.</p><p><br>
+		Candidates with a bachelor's degree in Engineering or equivalent and with a valid GATE score are
+		eligible to apply. Selection is based on GATE score and performance in an interview conducted at the
+		centre. The interview tests engineering knowledge, abstract and analytical thinking ability,
+		communication ability, and overall aptitude for smart manufacturing.
+		The Centre for Product Design and Manufacturing offers industry opportunity for internships during
+		summer (two months during May-July each year) and for recruiting students graduating from the
+		Master of Technology (M.Tech) course specializing in Smart Manufacturing.	
+		</p>
+
+		</div>
+
+		</section>
+		
+
+
+
+		<section class="container">
+			<h2>RESEARCH PROGRAMME in ADVANCED MANUFACTURING</h2>
+			<div class="welcome-body">
+			<p>
+			We currently have 13 PhD candidates with us, of which seven were recruited this year. The remaining
+			six students have completed one year of training, were recruited last year and have undergone 4
+			courses during this training.</p><br><p>
+			The research programme at CPDM (MTech by Research and PhD) in Advanced Manufacturing is
+			carried out in a variety of areas, materials and processes, digital manufacturing, manufacturing supply
+			chains, sustainable manufacturing, Industry 4.0, controls/autonomous systems and robotics, and
+			policy and entrepreneurship in manufacturing. CPDM pioneered research in the area of smart
+			manufacturing in India with the initiation of India's first indigenous Smart Factory research platform
+			in 2015 in collaboration with The Boeing Company, USA; Boeing is a strategic partner of IISc, similar
+			to University Cambridge in the UK and Tshinghua University in China. Equipped with a strong faculty,
+			a well-groomed library and an array of sophisticated facilities for prototyping and manufacturing and
+			associated research, CPDM has a vibrant atmosphere to develop future leaders in manufacturing
+			research.</p><br><p>
+			CPDM hosts a technology business incubator (TBI) in MedTech with special focus on Geriatric
+			Healthcare funded by KBITS, GOK. The TBI is intended to support innovators via a programme that
+			straddles incubation, training and mentorships, as well as having access to four state of the art
+			facilities in the areas of mechanical, chemical, biological and user testing. It is also extending its earlier
+			work on developing India's first indigenous Smart Factory into a demonstration platform for industry
+			called I4.0India@IISc (I for India at IISc). The platform is being developed as a Common Engineering
+			Facility Centre (CEFC) under the SAMARTH Udyog Bharat 4.0 programme of the department of Heavy
+			Industries, GoI. A major thrust of research at CPDM in manufacturing is developing new processes,
+			technologies and tools for supporting development of complex and advanced manufacturing systems.
+			For fostering international research into manufacturing in India, CPDM initiated a major conference
+			series called I-4AM (pronounced I forum) - International Conference series on Industry 4.0 and
+			Advanced Manufacturing. Its first edition will be held during 28-29 June 2019 at Indian Institute of
+			Science Bangalore, to deliver international quality at affordable price.</p><br><p>
+			Research students are selected thorough a stringent selection procedure comprising a rigorous and
+			extensive interview, in order to determine their individual ability and motivation. Based on the
+			background of the student, each research student will be allocated a research topic at the time of
+			admission, from among the topics of research offered for admission in the year of admission. Each
+			student will be jointly supervised by two faculty members among those who are involved in the
+			manufacturing programme (see list of faculty members involved in the manufacturing programme
+			below).</p><br><p>
+			Ph.D. at IISc generally requires three and half years of extensive, in-depth research. A PhD student is
+			expected to make major contributions in philosophy, understanding or enhancement of the state of
+			the art in manufacturing.</p><br><p>
+			MTech by Research [MTech(R)] is generally a two years research course. MTech(R) students are
+			required to enrol more courses than that required for PhD students. MTech(R) is a perfect blend of
+			course work and research, thus providing students with freedom to take up further either doctoral
+			research, join a company where both research and general design are essential, or initiate/join a
+			startup.</p>
+			</div>
+		</section>
+
+		<section class="container">
+		<h2>Startup Support</h2>
+		<ul class="guidelines-list">
+			<li>Embedsense Solutions Pvt Ltd</li>
+			<li>ADS Interconnects</li>
+			<li>SenseGiz Technologies Pvt Ltd.</li>
+			<li>NetObjex</li>
+			<li>MatrIoT Solutions Private Limited</li>
+			<li>CognetThings Technologies Pvt Ltd</li>
+			<li>Hecklab Solutions Private Limited</li>
+			<li>FluxGen Engineering Technology</li>
+			<li>Axcend Automation and Software Solutions Pvt Ltd</li>
+			<li>Credence Robotics LLP</li>
+		</ul>
+		</section>
+
+	 
+	  `,
+	  past:
+	  `
+		<section class="container">
+		<h2>Smart Solutions for MSMEs</h2>
+
+		  <div style="display: flex; gap: 2rem;">
+    
+			<!-- Left Column: Cards -->
+			<div style="flex: 1.2;">
+			<div class="card-grid" style="display: flex; flex-direction: column; gap: 1rem;">
+				<div class="card active-card" onclick="loadPDF(this, 'PDFs/Automated-Inspection-System.pdf')" style="border: 2px solid #333; cursor: pointer;">Automated Inspection System</div>
+				<div class="card" onclick="loadPDF(this, 'PDFs/PCB-Inspection-System.pdf')" style="cursor: pointer;">PCB Inspection System</div>
+				<div class="card" onclick="loadPDF(this, 'PDFs/Smart_Incoming-Inspection-System.pdf')" style="cursor: pointer;">Smart Incoming Inspection System</div>
+				<div class="card" onclick="loadPDF(this, 'PDFs/Smart_Multi-Material_Resource_Bin.pdf')" style="cursor: pointer;">Smart Multi-Material Resource Bin</div>
+			</div>
+			</div>
+
+			<!-- Right Column: PDF Viewer -->
+			<div style="flex: 1.8;">
+			<iframe id="pdfViewer" src="PDFs/Automated-Inspection-System.pdf#navpanes=0" width="100%" height="400" style="border: none; display: block;"></iframe>
+			</div>
+
+		</div>
+		</section>
+		</section>
+		<section class="container">
+		<h2>In-house R&D</h2>
+
+		<div style="display: flex; gap: 2rem;">
+			
+			<!-- Left Column: Cards -->
+			<div style="flex: 1.8;">
+			<iframe id="pdfViewer2" src="PDFs/3D-Metal-printing.pdf#navpanes=0" width="100%" height="500" style="border: none; display: block;"></iframe>
+			</div>
+
+			<!-- Right Column: PDF Viewer -->
+			<div style="flex: 1.2;">
+			<div class="card-grid" style="display: flex; flex-direction: column; gap: 1rem;">
+				<div class="card active-card" onclick="loadPDF2('PDFs/3D-Metal-printing.pdf')" style="border: 2px solid #333; cursor: pointer;">3d Metal Printing</div>
+				<div class="card" onclick="loadPDF2('PDFs/Certification_by_I4.0.pdf')" style="cursor: pointer;">Certification by I4.0</div>
+				<div class="card" onclick="loadPDF2('PDFs/RFID-positioning.pdf')" style="cursor: pointer;">RFID Positioning</div>
+				<div class="card" onclick="loadPDF2('PDFs/Smart-Sustainability-Assessment2.pdf')" style="cursor: pointer;">Smart Sustainability Assessment</div>
+				<div class="card" onclick="loadPDF2('PDFs/Mixed-Reality-Digital-Twin.pdf')" style="cursor: pointer;">Mixed-Reality Digital Twin</div>
+				<div class="card" onclick="loadPDF2('PDFs/Smart_Sensor-Dashboard.pdf')" style="cursor: pointer;">Smart Sensor Dashboard</div>
+			</div>
+			</div>
+
+		</div>
+		</section>
+		<section class="container">
+		<h2>Industry-Sponsored R&amp;D</h2>
+		<ul class="guidelines-list">
+			<li>Project with TKM: Automated Ergonomic Assessment</li>
+			<li>Projects with Faurecia: Real-time Air Quality and Emission Monitoring (Sustainability)</li>
+			<li>Project with Yaskawa: Study of Imitation Learning Approaches to Train Robot Arms</li>
+			<li>
+			Project with TCS:
+			<ol>
+				<li>&#9656;Smart Wearables for Worker Health Monitoring on Shop Floors (Safety)</li>
+				<li>&#9656;Portable Water Purifier with IoT-Enabled Mapping and Feedback on Quality (Quality)</li>
+				<li>&#9656;Smart Imaging System for Security and Surveillance Applications (Safety)</li>
+			</ol>
+			</li>
+		</ul>
+		</section>
+
+
+
+
+	  `,
       contact: `
         <h2>Contact Us</h2>
         <div class="card">
@@ -1093,6 +1337,33 @@
       document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
       el.classList.add('active');
     }
+	function loadPDF(clickedCard, pdfPath) {
+		const iframe = document.getElementById('pdfViewer');
+		iframe.src = pdfPath + '#navpanes=0';
+		iframe.style.display = 'block';
+
+		// Remove active styling from all cards
+		const allCards = document.querySelectorAll('.card');
+		allCards.forEach(card => {
+		card.style.border = '0px solid #ccc';
+		});
+
+		// Apply active styling to clicked card
+		clickedCard.style.border = '2px solid #333';
+	}
+	function loadPDF2(pdfPath) {
+		const iframe2 = document.getElementById('pdfViewer2');
+		iframe2.src = pdfPath + '#navpanes=0';
+		iframe2.style.display = 'block';
+		// Remove active styling from all cards
+		const allCards = document.querySelectorAll('.card');
+		allCards.forEach(card => {
+		card.style.border = '0px solid #ccc';
+		});
+
+		// Apply active styling to clicked card
+		clickedCard.style.border = '2px solid #333';
+	}
 
     // Load default
     loadPage('home', document.querySelector('nav a.active'));
