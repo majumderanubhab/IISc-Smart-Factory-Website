@@ -498,7 +498,7 @@ const pages = {
 
 		</div>
 		</section>
-		</section>
+
 		<section class="container">
 		<h2>In-house R&D</h2>
 
@@ -519,7 +519,7 @@ const pages = {
 				<div class="card" onclick="loadPDF2(this, 'PDFs/Mixed-Reality-Digital-Twin.pdf')" style="cursor: pointer;">Mixed-Reality Digital Twin</div>
 				<div class="card" onclick="loadPDF2(this, 'PDFs/Smart_Sensor-Dashboard.pdf')" style="cursor: pointer;">Smart Sensor Dashboard</div>
 			</div>
-			</div>
+		    </div>
 
 		</div>
 		</section>
