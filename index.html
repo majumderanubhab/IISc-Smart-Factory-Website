@@ -786,14 +786,68 @@
 	.partner-logos img:hover {
 	  transform: scale(1.05);    /* Zoom effect on hover */
 	}
+	.events-list {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.event {
+		display: flex;
+		gap: 15px;
+		border-bottom: 1px solid #ccc;
+		padding-bottom: 10px;
+	}
+
+	.event-date {
+		width: 60px;
+		flex-shrink: 0;
+		text-align: center;
+		background-color: var(--primary);
+		color: white;
+		border-radius: 6px;
+		padding: 5px 0;
+		font-family: sans-serif;
+	}
 
 
+	.event-date .day {
+		font-size: 1.4em;
+		font-weight: bold;
+		line-height: 1;
+	}
+
+	.event-date .month {
+		text-transform: uppercase;
+		font-size: 0.9em;
+		line-height: 1;
+	}
+
+	.event-date .year {
+		font-size: 0.8em;
+		line-height: 1.2;
+	}
+	.event-details {
+		flex: 1;
+	}
+
+
+	.event-details h4 {
+		margin: 0 0 5px 0;
+		font-size: 1em;
+	}
+
+	.event-details p {
+		margin: 0;
+		font-size: 0.9em;
+		color: #606060;
+	}
 
   </style>
 </head>
 <body>
 	<div class="news-ribbon">
-	  <p>🚨 Recent News Update: Our new Industry 4.0 research project has just launched at IISc! 🚨</p>
+	  <p>🚨 Recent News Update: CEFC Phase 2 has launched at DM, IISc! 🚨</p>
 	</div>
 
 	<!-- NAVBAR -->
@@ -912,27 +966,147 @@
 		<a href="#welcome" class="hero-cta-button">Explore More <i class="fas fa-chevron-down"></i></a>
 		</div>
 		</header>
+		
 		<section class="container" id="welcome">
+		
+		
+		<!-- Two-column layout -->
+		<div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+			
+			<!-- Left Column: Welcome Text -->
+			<div style="flex: 1; min-width: 300px;">
 			<h2>Welcome</h2>
 			<div class="welcome-body">
-			  <p>
-				Department of Design and Manufacturing, Indian Institute of Science, had initiated in 2014 India’s first indigenous smart factory platform. With funding from Department of Heavy Industries (DHI), Government of India under its SAMARTH Udyog Bharat 4.0 programme, this is turning into a complete factory testbed with two parts:
-			  </p>
+				<p>
+				Department of Design and Manufacturing, Indian Institute of Science, had initiated in 2014 India's first indigenous smart factory platform. With funding from Department of Heavy Industries (DHI), Government of India under its SAMARTH Udyog Bharat 4.0 programme, this is turning into a complete factory testbed with two parts:
+				</p>
 
-			  <ul>
+				<ul>
 				<li>
-				  <strong>A labour-intensive toolroom</strong> with a connected set of legacy machines that represents the MSMEs of India, and
+					<strong>A labour-intensive toolroom</strong> with a connected set of legacy machines that represents the MSMEs of India, and
 				</li>
 				<li>
-				  <strong>An automation-intensive factory</strong> that integrates 3D (metal, polymer) printers, metal laser routers, 5 axis CNCs, using industrial robots, collaborative robots and automated guided vehicles.
+					<strong>An automation-intensive factory</strong> that integrates 3D (metal, polymer) printers, metal laser routers, 5 axis CNCs, using industrial robots, collaborative robots and automated guided vehicles.
 				</li>
-			  </ul>
+				</ul>
 
-			  <p>
+				<p>
 				The aim is to demonstrate the power of smart and connected intelligence in enhancing quality, productivity, efficiency, flexibility, and sustainability for manufacturing across sectors and for research into factories of the future.
-			  </p>
+				</p>
 			</div>
+			</div>
+
+			<!-- Right Column: News & Events -->
+			<div style="flex: 1;">
+			<h2>News & Events</h2>
+			<div class="events-list" style="flex: 1; min-width: 300px; max-height: 500px; overflow-y: auto; border: 2px solid #ddd; padding: 10px; background-color: var(--light);">
+				<div class="event">
+				<div class="event-date">
+					<span class="month">July</span>
+					<span class="year">2023</span>
+				</div>
+				<div class="event-details">
+					<h5>Summer Programme on Design Thinking</h5>
+					<p>Short-term Summer Programme and Internship on Design Thinking, Smart Manufacturing, and Incubation at CPDM, IISc.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Jun</span>
+					<span class="year">2022</span>
+				</div>
+				<div class="event-details">
+					<h5>Summer Programme on Design Thinking</h5>
+					<p>Short-term Summer Programme and Internship on Design Thinking, Smart Manufacturing, and Incubation at CPDM, IISc.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Jun</span>
+					<span class="year">2018</span>
+				</div>
+				<div class="event-details">
+					<h5>Industry 4.0 & Additive Manufacturing Workshop</h5>
+					<p>Workshop under I4.0India@IISc on Industry 4.0 & Additive Manufacturing at SSCU Auditorium, IISc, with 100+ participants from academia, PSUs, and industry leaders.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Mar</span>
+					<span class="year">2019</span>
+				</div>
+				<div class="event-details">
+					<h5>Industry Workshops on I4.0</h5>
+					<p>Workshops with industry partners and potential other players on I4.0 technologies.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Feb</span>
+					<span class="year">2019</span>
+				</div>
+				<div class="event-details">
+					<h5>Industry Workshops on I4.0</h5>
+					<p>Workshops with industry partners and potential other players on I4.0 technologies.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Jan</span>
+					<span class="year">2019</span>
+				</div>
+				<div class="event-details">
+					<h5>Industry Workshops on I4.0</h5>
+					<p>Workshops with industry partners and potential other players on I4.0 technologies.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Dec</span>
+					<span class="year">2018</span>
+				</div>
+				<div class="event-details">
+					<h5>Industry Workshops on I4.0</h5>
+					<p>Workshops with industry partners and potential other players on I4.0 technologies.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Nov</span>
+					<span class="year">2018</span>
+				</div>
+				<div class="event-details">
+					<h5>Industry Workshops on I4.0</h5>
+					<p>Workshops with industry partners and potential other players on I4.0 technologies.</p>
+				</div>
+				</div>
+
+				<div class="event">
+				<div class="event-date">
+					<span class="month">Oct</span>
+					<span class="year">2018</span>
+				</div>
+				<div class="event-details">
+					<h5>Inauguration & Project Demos</h5>
+					<p>Inauguration & project demos of I4.0india@IISc and Industry Workshop on I4.0 & AM Technologies.</p>
+				</div>
+				</div>
+
+
+				<!-- More events can go here -->
+			</div>
+			</div>
+
+		</div>
 		</section>
+
 		<section class="smart-intro">
 		  <div class="smart-content">
 			<div class="smart-icon">
