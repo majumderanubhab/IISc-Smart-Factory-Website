@@ -1,6 +1,39 @@
+
+
+
+
+<section class="container" style="max-width: 600px;">
 <h2>Contact Us</h2>
-<div class="card">
-    <p>Email: <a href="mailto:smartmfgiisc@iisc.ac.in">smartmfgiisc@iisc.ac.in</a></p>
-    <p>Phone: +91-80-2293-XXXX</p>
-    <p>Location: Demo & Development Cell, Department of Mechanical Engineering, IISc Bangalore</p>
+    <div class="card">
+        
+    <!-- 🔗 DM Department Icon with Link -->
+    <div class="dm-header" style="text-align: left; margin-bottom: 1rem;">
+        <a href="https://dm.iisc.ac.in/dm/" target="_blank" title="Visit DM">
+            <img src="https://dm.iisc.ac.in/dm/wp-content/uploads/2024/02/logo-1.png" alt="DM Department Logo" style="height: 60px;">
+        </a>
+    </div>
+
+    <!-- 📬 Contact Form -->
+    <form action="mailto:veeraallam@iisc.ac.in" method="GET" enctype="text/plain">
+    <label for="topic"><strong>Reason for Contact:</strong></label>
+    <select id="topic" name="subject" required style="width: 100%; padding: 8px; margin-bottom: 1rem;">
+        <option value="">-- Select an Option --</option>
+        <option value="Services">Services (Machining)</option>
+        <option value="Collaborate">Collaborate (Projects)</option>
+        <option value="Jobs">Jobs</option>
+        <option value="Startup">Startup (Support)</option>
+        <option value="Training">Training (Workshop, short course)</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="message"><strong>Your Message:</strong></label>
+    <textarea id="message" name="body" rows="6" required style="width: 100%; padding: 8px; margin-bottom: 1rem;"></textarea>
+
+    <button type="submit" class="btn">Submit</button>
+</form>
+
+</section>
+
 </div>
+
+

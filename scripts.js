@@ -97,3 +97,5 @@ function loadPDF2(clickedCard, pdfPath) {
     clickedCard.style.border = '2px solid #333';
 }
 
+
+
