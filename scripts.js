@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        
+
     } else {
         // Load default "home" page if no hash is present
         const defaultLink = document.querySelector('nav a[href="#home"]');
