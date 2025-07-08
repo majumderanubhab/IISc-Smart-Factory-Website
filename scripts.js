@@ -5,6 +5,7 @@ const PAGE_PATHS = {
     facilities: 'pages/facilities.html',
     offerings: 'pages/offerings.html',
     past: 'pages/past.html',
+    ongoing: 'pages/ongoing.html',
     contact: 'pages/contact.html'
 };
 
