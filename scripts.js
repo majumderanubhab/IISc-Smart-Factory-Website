@@ -98,5 +98,17 @@ function loadPDF2(clickedCard, pdfPath) {
     clickedCard.style.border = '2px solid #333';
 }
 
+window.addEventListener("hashchange", function () {
+    const hash = window.location.hash.substring(1);
+
+    if (hash && PAGE_PATHS[hash]) {
+        const navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach(link => {
+            if (link.getAttribute("href") === `#${hash}`) {
+                loadPage(hash, link);
+            }
+        });
+    }
+});
 
 
