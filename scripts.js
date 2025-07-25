@@ -60,6 +60,13 @@ async function loadPage(page, el) {
         const html = await response.text();
         mainContent.innerHTML = html;
 
+        // ✅ Check if the current page has an events container
+        const eventsDiv = document.getElementById('eventsContainer');
+        if (eventsDiv) {
+            const eventsHTML = await fetch('pages/events-list.html').then(res => res.text());
+            eventsDiv.innerHTML = eventsHTML;
+        }
+
     } catch (err) {
         mainContent.innerHTML = `<p>Error loading page: ${err.message}</p>`;
         console.error(err);
@@ -110,5 +117,3 @@ window.addEventListener("hashchange", function () {
         });
     }
 });
-
-
