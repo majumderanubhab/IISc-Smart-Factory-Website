@@ -925,3 +925,129 @@ h4:hover::after {
     font-size: 0.9em;
     color: #606060;
 }
+
+.pagination {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  margin: 0 2px;
+  transition: background-color 0.3s;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination a.active {
+  background-color: var(--accent);
+  color: white;
+  border: 1px solid var(--accent);
+}
+
+.pagination span {
+  float: left;
+  padding: 8px 16px;
+  color: #888;
+}
+/* Scope to news display only */
+.news-view .event {
+    display: flex;
+    align-items: flex-start;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 16px 0;
+    padding: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-view .event:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Stylish date box */
+.news-view .event-date {
+    background: var(--light);
+    color: #1f2937;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: center;
+    min-width: 70px;
+    margin-right: 20px;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+}
+
+.news-view .event-date .month {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.news-view .event-date .year {
+    font-size: 13px;
+    color: #4b5563;
+}
+
+/* Modern text styling */
+.news-view .event-details {
+    flex: 1;
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+.news-view .event-details h5 {
+    font-size: 18px;
+    margin: 0 0 6px;
+    color: var(--primary);
+}
+
+.news-view .event-details p {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 8px;
+}
+
+/* More details block */
+.news-view .more-details {
+    margin-top: 12px;
+    background: #f9fafb;
+    padding: 12px;
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+}
+
+.news-view .more-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+
+.news-view .more-details a {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.news-view .more-details a:hover {
+    text-decoration: underline;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* or 100vh if you want full screen */
+  text-align: center;
+}
