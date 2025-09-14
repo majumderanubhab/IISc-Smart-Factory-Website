@@ -1082,4 +1082,3 @@ tr:nth-child(even) {
   10% { opacity: 0; }       /* blink off */
   30%, 100% { opacity: 1; } /* stay visible (pause) */
 }
-
