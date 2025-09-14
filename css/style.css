@@ -472,14 +472,14 @@ footer h3 {
 }
 
 .smart-text .lead {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #555;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .welcome-body {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.5;
     color: #444;
     max-width: 1200px;
     margin: 0 auto;
@@ -1069,19 +1069,17 @@ tr:nth-child(even) {
 .badge {
   background-color: var(--secondary);
   color: white;
-  padding: 4px 8px;
+  padding: 2px 4px;
   text-align: center;
   border-radius: 5px;
 
-  /* blinking effect */
-  animation: blink 1s infinite;
+  /* total cycle: 5s = 2s blink + 3s pause */
+  animation: blinkPause 5s infinite;
 }
 
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+@keyframes blinkPause {
+  0%, 20% { opacity: 1; }   /* visible */
+  10% { opacity: 0; }       /* blink off */
+  30%, 100% { opacity: 1; } /* stay visible (pause) */
 }
+
