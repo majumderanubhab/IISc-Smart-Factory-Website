@@ -11,7 +11,7 @@
 
 <body>
 	<div class="news-ribbon">
-		<p>🚨 Recent News Update: CEFC Phase 2 has launched at DM, IISc! 🚨</p>
+		<p>🚨 Recent News: CEFC Phase 2 has launched at DM, IISc! 🚨</p>
 	</div>
 
 	<!-- NAVBAR -->
@@ -22,9 +22,16 @@
 		</div>
 		<ul class="nav-menu">
 			<li><a href="#home" onclick="loadPage('home', this)">Home</a></li>
+			<li><a href="#hackathon" onclick="loadPage('hackathon', this)">Hackathon</i></a></li>
 			<li><a href="#news" onclick="loadPage('news', this)">News & Events</a></li>
-			<li><a href="#facilities" onclick="loadPage('facilities', this)">Facilities & Services</a></li>
-			<li><a href="#offerings" onclick="loadPage('offerings', this)">What do we offer?</a></li>
+			<li class="has-dropdown">
+				<a href="#">Services and Offerings</a>
+				<ul class="dropdown">
+					<li><a href="#facilities" onclick="loadPage('facilities', this)">Services</a></li>
+					<li><a href="#offerings" onclick="loadPage('offerings', this)">Offerings</a></li>
+				</ul>
+			</li>
+			
 			<li class="has-dropdown">
 				<a href="#">Programs</a>
 				<ul class="dropdown">

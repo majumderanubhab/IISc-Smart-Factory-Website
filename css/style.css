@@ -1051,3 +1051,37 @@ h4:hover::after {
   height: 100vh; /* or 100vh if you want full screen */
   text-align: center;
 }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.badge {
+  background-color: var(--secondary);
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+
+  /* blinking effect */
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

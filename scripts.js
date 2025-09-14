@@ -1,6 +1,7 @@
 
 const PAGE_PATHS = {
     home: 'pages/home.html',
+    hackathon: 'pages/hackathon.html',
     people: 'pages/people.html',
     facilities: 'pages/facilities.html',
     offerings: 'pages/offerings.html',
