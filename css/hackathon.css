@@ -1,0 +1,154 @@
+/* Custom styles for animations that are hard to do with just Tailwind utility classes */
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+    animation: spin-slow 6s linear infinite reverse;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for clean look in some areas if needed */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Float Animation 1: Square */
+@keyframes float-1 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(100px, -50px) rotate(120deg);
+    }
+
+    66% {
+        transform: translate(50px, 0px) rotate(240deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+/* Float Animation 2: Blue Square */
+@keyframes float-2 {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(-80px, 60px) rotate(-120deg);
+    }
+
+    66% {
+        transform: translate(-40px, 30px) rotate(-240deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(-360deg);
+    }
+}
+
+/* Pulse & Rotate for Diamond */
+@keyframes pulse-rotate {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(90deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Data Flow Lines */
+@keyframes dash-flow {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: -40;
+    }
+}
+
+/* Circuit Nodes Pulse */
+@keyframes node-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.6;
+    }
+}
+
+.animate-float-1 {
+    animation: float-1 20s linear infinite;
+}
+
+.animate-float-2 {
+    animation: float-2 25s linear infinite;
+}
+
+.animate-pulse-rotate {
+    animation: pulse-rotate 15s ease-in-out infinite;
+}
+
+.animate-dash-flow {
+    animation: dash-flow 3s linear infinite;
+}
+
+.animate-dash-flow-slow {
+    animation: dash-flow 4s linear infinite;
+}
+
+.animate-node-pulse {
+    animation: node-pulse 3s ease-in-out infinite;
+}
+
+/* Continuous Hover Float for Hero SVG */
+@keyframes float-continuous {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float-continuous {
+    animation: float-continuous 6s ease-in-out infinite;
+}

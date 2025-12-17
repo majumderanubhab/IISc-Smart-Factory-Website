@@ -1,766 +1,1171 @@
-<!-- <section class="container">
-    <h2>Timeline Snapshot</h2>
-    <object type="image/svg+xml" data="PDFs/images/hackathon_timeline.svg" width="100%" height="auto"></object> -->
+<!-- Scroll Progress -->
+<div id="scroll-progress"
+    class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FDB813] to-[#FFA000] origin-left z-50 transform scale-x-0 transition-transform duration-100 ease-out">
+</div>
 
-<section class="partner-section">
-    <div class="partner-card">
-        <!-- <h4>Our Partners</h4> -->
-        <div class="partner-logos">
-            <img src="partner logos/DM_Logo.png">
-            <img src="partner logos/Ministry_of_Heavy_Industries_India.svg.png">
-            <img src="partner logos/tata-steel-logo.png">
-            <!--<img src="partner logos/Toyota_logo_(Red).png">
-			  
-			   Add more logos as needed -->
+<!-- Sticky Nav -->
+<nav class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 md:h-20">
+            <!-- Logo -->
+            <div class="flex items-center gap-3 md:gap-4">
+                <img src="assets/6da10831fbc863483ad9de887737f339bf3953ed.png" alt="TechSprint 4.0"
+                    class="h-16 md:h-24">
+                <img src="assets/2d35bf81b57c2bd72d75e583350f0425c9266198.png" alt="4mlabs" class="h-12 md:h-16">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" onclick="loadPage('home', this)"
+                    class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Home</a>
+                <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+                    class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">About</button>
+                <button onclick="document.getElementById('timeline').scrollIntoView({behavior: 'smooth'})"
+                    class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Timeline</button>
+                <button onclick="document.getElementById('themes').scrollIntoView({behavior: 'smooth'})"
+                    class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Themes</button>
+                <button onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})"
+                    class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Process</button>
+                <button onclick="document.getElementById('rules').scrollIntoView({behavior: 'smooth'})"
+                    class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Rules</button>
+                <button onclick="document.getElementById('partners').scrollIntoView({behavior: 'smooth'})"
+                    class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Partners</button>
+                <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025" target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all transform hover:scale-105 active:scale-95">Register
+                    Now</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-[#1e3a5f]">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
     </div>
-</section>
 
-    <!-- Two-column layout -->
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-200 transition-all duration-300 overflow-hidden h-0 opacity-0">
+        <div class="px-4 py-4 space-y-3">
+            <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+                class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">About</button>
+            <button onclick="document.getElementById('timeline').scrollIntoView({behavior: 'smooth'})"
+                class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Timeline</button>
+            <button onclick="document.getElementById('themes').scrollIntoView({behavior: 'smooth'})"
+                class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Themes</button>
+            <button onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})"
+                class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Process</button>
+            <button onclick="document.getElementById('rules').scrollIntoView({behavior: 'smooth'})"
+                class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Rules</button>
+            <button onclick="document.getElementById('partners').scrollIntoView({behavior: 'smooth'})"
+                class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Partners</button>
+            <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025" target="_blank"
+                rel="noopener noreferrer"
+                class="block w-full bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-6 py-3 rounded-full text-center">Register
+                Now</a>
+        </div>
+    </div>
+</nav>
 
-        <!-- Left Column: Welcome Text -->
-        <div style="flex: 1; min-width: 400px;">
-        <!-- <h2>Important Dates</h2> -->
-        <!-- <div class="card"> -->
-            <section class="smart-intro">
-                <div class="smart-content">
-                    <div class="smart-icon">
-                        <i class="fas fa-industry"></i>
+<main>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none" id="hero-background">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#e8f4f8] via-[#f5f7fa] to-[#fff8e6]"></div>
+
+            <!-- Animated Grid -->
+            <svg class="absolute inset-0 w-full h-full opacity-20">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e3a5f" strokeWidth="0.5"></path>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"></rect>
+            </svg>
+
+            <!-- Shapes -->
+            <div class="absolute top-20 left-20 w-16 h-16 border-4 border-[#FDB813] opacity-30 animate-float-1"
+                style="border-radius: 30%;"></div>
+
+            <div class="absolute bottom-40 right-32 w-20 h-20 border-4 border-[#1e3a5f] opacity-20 animate-float-2">
+            </div>
+
+            <div class="absolute top-1/2 right-20 w-12 h-12 bg-[#FDB813] opacity-20 animate-pulse-rotate"
+                style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+
+            <!-- Data Flow Lines -->
+            <svg class="absolute inset-0 w-full h-full">
+                <path d="M 0 100 Q 200 150 400 100 T 800 100" fill="none" stroke="#FDB813" stroke-width="2"
+                    stroke-dasharray="10 10" class="animate-dash-flow" opacity="0.3" />
+                <path d="M 0 300 Q 300 250 600 300 T 1200 300" fill="none" stroke="#1e3a5f" stroke-width="2"
+                    stroke-dasharray="10 10" class="animate-dash-flow-slow" opacity="0.2" />
+            </svg>
+
+            <!-- Circuit Nodes will be injected here by JS -->
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-6 fade-right opacity-0 -translate-x-12 transition-all duration-700">
+                    <div class="inline-block">
+                        <span
+                            class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-6 py-3 rounded-full text-base">
+                            National Hackathon Series 2025-26
+                        </span>
                     </div>
-                    <div class="smart-text">
-                        <h2>MSME 4.0 TechSprint: National Hackathon Series 2025-26</h2> 
-                        <p class="lead">
-                            Empowering the base of Indian Manufacturing ecosystem through Digital Innovation
-                        </p>
+
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl text-[#1e3a5f] whitespace-nowrap font-medium">
+                        Join India's Manufacturing Revolution!
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-600">
+                        TechSprint 4.0 – Building the future of smart manufacturing with Industry 4.0 technologies
+                    </p>
+
+                    <!-- Event Details -->
+                    <div class="flex flex-col sm:flex-row gap-4 text-sm">
+                        <div class="flex items-center gap-2 text-[#1e3a5f]">
+                            <i data-lucide="calendar" class="w-5 h-5 text-[#FDB813]"></i>
+                            <span><strong>Hackathon:</strong> Jan 10-11, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-[#1e3a5f]">
+                            <i data-lucide="clock" class="w-5 h-5 text-[#FDB813]"></i>
+                            <span><strong>Register by:</strong> Dec 26, 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025" target="_blank"
+                            rel="noopener noreferrer"
+                            class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all text-center inline-block transform hover:scale-105 active:scale-95">
+                            Register Now
+                        </a>
                     </div>
                 </div>
-            </section>
-        </div>
 
-        <!-- Right Column: News & Events -->
-        <div style="flex: 1; min-width: 200px;">
-            <h3>Important Dates (Revised)</h3>
-            <div class="card">
-                <div class="welcome-body">
-                    <ul>
-                        <li>Hackathon 1: 15–16 November 2025 (Over)</li>
-                        <li>Registration deadline: Tuesday 23rd December 2025, 6 pm.</li>
-                        <li>Hackathon 2: 10–11 January 2026</li>
-                        <!-- <li>Hackathon 3: 13–14 December 2025</li>  -->
-                        <li>Incubation starts: December 2025</li>
-                    </ul>
+                <!-- Right Illustration -->
+                <div class="relative hidden md:block fade-left opacity-0 translate-x-12 transition-all duration-700">
+                    <div class="relative w-full h-[500px] flex items-center justify-center">
+                        <svg viewBox="0 0 400 400" class="w-full h-full">
+                            <!-- Simple SVG Factory representation for static HTML -->
+                            <circle cx="200" cy="200" r="150" fill="#1e3a5f" opacity="0.05" class="animate-pulse">
+                            </circle>
+
+                            <g class="animate-float-continuous">
+                                <rect x="150" y="160" width="100" height="120" fill="#1e3a5f" rx="8" />
+                                <rect x="165" y="175" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                <rect x="210" y="175" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                <rect x="165" y="215" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                <rect x="210" y="215" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                <path d="M150 160 L200 120 L250 160" fill="#2d5680" />
+
+                                <!-- Gears -->
+                                <g class="animate-spin-slow origin-center" style="transform-origin: 100px 100px;">
+                                    <circle cx="100" cy="100" r="30" fill="none" stroke="#FDB813" stroke-width="4"
+                                        stroke-dasharray="10 5" />
+                                </g>
+                                <g class="animate-spin-reverse-slow origin-center"
+                                    style="transform-origin: 300px 240px;">
+                                    <circle cx="300" cy="240" r="25" fill="none" stroke="#FDB813" stroke-width="4"
+                                        stroke-dasharray="8 4" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
             </div>
-        <h3> <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025">Register Now! </a> </h3>
-        <!-- <div class="card"> -->
-            <!-- <div class="welcome-body">
-            </div> -->
         </div>
 
-    </div>
+        <!-- Scroll Indicator -->
+        <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+            class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-[#1e3a5f] cursor-pointer animate-bounce">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </button>
+    </section>
+    <!-- Promo Video Section -->
+    <section class="py-20 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-[#FDB813] opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FDB813] opacity-10 rounded-full blur-3xl"></div>
 
-<!-- <section class="smart-intro">
-    <div class="smart-content">
-        <div class="smart-icon">
-            <i class="fas fa-industry"></i>
-        </div>
-        <div class="smart-text">
-            <h2>MSME 4.0 TechSprint: National Hackathon Series 2025</h2> 
-            <p class="lead">
-                Empowering the base of Indian Manufacturing ecosystem through Digital Innovation
-            </p>
-        </div>
-    </div>
-</section> -->
-
-    <!-- <h2>Pre-Hackathon Preparation</h2>
-    <div class="card">
-        <div class="welcome-body">
-
-            <h3>Finalize Problem Statements</h3>
-            <ul>
-                <li>Among the curated ~50 problem statements, key challenges in Smart Manufacturing and Industry 4.0
-                    will be
-                    identified and included as part of the top 30 selected problems.</li>
-                <li>Each problem will include clear context about manufacturing processes, expected technical and
-                    business
-                    outcomes, and scope limitations.</li>
-            </ul>
-
-            <h3>Hackathon Announcement</h3>
-            <ul>
-                <li>Announce these 30 selected problem statements along with eligibility criteria, competition rules,
-                    timelines,
-                    certificate/prizes, and incubation opportunities on the official website.</li>
-                <li>Promote widely via social media channels, academic institutions, startup forums, and incubator
-                    networks.
-                </li>
-            </ul>
-
-            <h3>Registration Process</h3>
-            <ul>
-                <li>Participants with expertise or interest in Smart Manufacturing and I4.0 domains will be encouraged
-                    to
-                    register.</li>
-                <li>Allow individual registration.Collect info: skillsets, interest area, problem
-                    choice.
-                </li>
-            </ul>
-
-            <h3>Pre-Hackathon Orientation</h3>
-            <ul>
-                <li>Conduct a webinar/Q&amp;A session to explain problem statements, judging criteria, and incubation
-                    pathway.
-                    Provide FAQs and mentor guidelines.</li>
-            </ul>
-        </div>
-    </div> -->
-    <!-- <br>
-    <h2>Hackathon Execution</h2>
-    <div class="card">
-        <div class="welcome-body">
-            <h3>Team Formation & Problem Selection</h3>
-            <ul>
-                <li>Teams will be assigned mentors with relevant domain expertise.
-                </li>
-                <li>Teams choose 1 problem from the published list of 50.</li>
-                <li>Ensure balance across problem statements (encourage distribution).</li>
-            </ul>
-
-            <h3>Mentor Allocation</h3>
-            <ul>
-                <li>Assign domain mentors for each category.</li>
-                <li>Mentors guide teams (solution feasibility, prototyping approach, scalability).</li>
-            </ul>
-
-            <h3>Hackathon Format</h3>
-            <ul>
-                <li>Round 1 (Idea Pitch) – Teams submit idea brief + business angle</li>
-                <li>Round 2 (Prototype/PoC) – Build MVP/demo solution.</li>
-                <li>Round 3 (Final Pitch) – Present prototype, business model, and impact.</li>
-                <li>Teams will develop Minimum Viable Products or Proof of Concepts that demonstrate integration of
-                    Industry 4.0 technologies
-                </li>
-                <li>Final presentations will require showcasing both technical functioning and potential for industrial
-                    scalability, sustainability, and business success within manufacturing sectors.</li>
-            </ul>
-
-            <h3>Judging Criteria</h3>
-            <p>Final presentations will require showcasing both technical functioning and potential for industrial
-                scalability,
-                sustainability, and business success.</p>
-
-            <p>Weightage for each category:</p>
-            <ul>
-                <li>Innovation &amp; Creativity (20%)</li>
-                <li>Technical Feasibility (20%)</li>
-                <li>Business Viability (20%)</li>
-                <li>Scalability &amp; Sustainability (20%)</li>
-                <li>Presentation &amp; Teamwork (20%)</li>
-            </ul>
-        </div>
-    </div>
-    <br>
-    <h2>Post-Hackathon Follow-up</h2>
-    <div class="card">
-        <div class="welcome-body">
-            <ul>
-                <li><strong>Winner &amp; Recognition</strong><br>Provide certificates and incubation offers.</li>
-                <li><strong>Incubation Pathway</strong><br>Invite promising teams (not just winners) to apply for
-                    incubation.
-                    Offer mentorship, seed funding support, and industry connects.</li>
-                <li><strong>Pilot/Industry Connects</strong><br>Link best solutions to corporates or problem-originating
-                    partners for pilot runs.</li>
-                <li><strong>Continuous Engagement</strong><br>Provide support for developing business models,
-                    fundraising and
-                    prototyping. Monitor incubated startups for 3–6 months.</li>
-            </ul>
-        </div>
-    </div>
-    <br> -->
-
-<section class="container" id="welcome">
-
- <div style="flex: 1; min-width: 300px;">
-            <h2>About the Hackathons</h2>
-            <div class="welcome-body">
-                <p>
-                    The MSME 4.0 TechSprint: National Hackathon Series 2025 is a flagship initiative supported by the Ministry of Heavy Industries (MHI), Government of India and Tata Steel, and organised by Indian Institute of Science.
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 fade-up">
+                <div class="inline-block mb-4">
+                    <span
+                        class="text-[#FDB813] text-sm uppercase tracking-wider flex items-center gap-2 justify-center">
+                        <i data-lucide="play" class="w-4 h-4"></i>
+                        Watch Now
+                    </span>
+                    <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl text-white mb-4 font-medium">
+                    TechSprint 4.0 Promo
+                </h2>
+                <p class="text-gray-200 text-lg max-w-3xl mx-auto">
+                    Discover how we're transforming Indian manufacturing through innovation and collaboration
                 </p>
-                <p>
-                    The series aims to identify and nurture innovative technology-based solutions that will help Indian Manufacturing Micro, Small, and Medium Enterprises (MSMEs) accelerate digital transformation and the adoption of Industry 4.0 technologies.
-                </p>
-                <ul>
-                    <li>
-                        Each Hackathon will be an independent 2-day event bringing together innovators, researchers, start-ups, and MSME collaborators to develop actionable prototypes and business concepts that enhance the competitiveness of Indian manufacturing.
-                    </li>
-                    <li>
-                        The most promising teams will be incubated at Indian Institute of Science under the MHI-supported MSME 4.0 Innovation Programme.
-                    </li>
-                </ul>
+            </div>
+
+            <div
+                class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-white/20 fade-up transition-delay-200">
+                <!-- Video Container -->
+                <div class="relative bg-black rounded-xl overflow-hidden shadow-2xl">
+                    <div class="flex items-center justify-center min-h-[400px]">
+                        <iframe
+                            src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7406259661051588608?compact=1"
+                            height="399" width="504" frameBorder="0" allowFullScreen title="Embedded post"
+                            class="w-full max-w-full"></iframe>
+                    </div>
+                </div>
+
+                <!-- Decorative corner accents -->
+                <div class="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-[#FDB813] rounded-tl-lg">
+                </div>
+                <div class="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-[#FDB813] rounded-tr-lg">
+                </div>
+                <div class="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-[#FDB813] rounded-bl-lg">
+                </div>
+                <div class="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-[#FDB813] rounded-br-lg">
+                </div>
             </div>
         </div>
-</section>
-
-    <!-- <h2>Important Dates</h2>
-    <div class="card">
-        <div class="welcome-body">
-            <ul>
-                <li>Registration deadline: Fri 24 October 2025 12 noon.</li>
-                <li>Hackathon 1: 1–2 November 2025</li>
-                <li>Hackathon 1: 8–9 November 2025</li>
-                <li>Hackathon 1: 15–16 November 2025</li> 
-                <li>Incubation starts: 1st December 2025</li>
-            </ul>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#f8f9fa] to-transparent pointer-events-none">
         </div>
-    </div> -->
-    <br>
 
-<section class="container" id="welcome">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-block mb-4">
+                    <span class="text-[#FDB813] text-sm uppercase tracking-wider">About the Event</span>
+                    <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-6 font-medium">
+                    TechSprint 4.0
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-4 text-gray-600 text-lg">
+                    <p>
+                        The National Hackathon Series 2025-26 is a flagship initiative supported by the
+                        <span class="text-[#1e3a5f] font-semibold">Ministry of Heavy Industries (MHI)</span>,
+                        Government of India and
+                        <span class="text-[#1e3a5f] font-semibold">Tata Steel</span>, and organised by
+                        <span class="text-[#1e3a5f] font-semibold">Indian Institute of Science</span>.
+                    </p>
+                    <p>
+                        The series aims to identify and nurture innovative technology-based solutions that will help
+                        Indian Manufacturing Micro, Small, and Medium Enterprises (MSMEs) accelerate digital
+                        transformation and the adoption of Industry 4.0 technologies.
+                    </p>
+                </div>
+            </div>
 
+            <!-- Feature Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Card 1 -->
+                <div
+                    class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-100 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#FDB813]/20">
+                        <i data-lucide="lightbulb" class="w-8 h-8 text-[#FDB813]"></i>
+                    </div>
+                    <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Innovation</h3>
+                    <p class="text-gray-600">Fostering breakthrough solutions for manufacturing challenges</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-200 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#1e3a5f]/20">
+                        <i data-lucide="factory" class="w-8 h-8 text-[#1e3a5f]"></i>
+                    </div>
+                    <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Manufacturing</h3>
+                    <p class="text-gray-600">Empowering MSMEs with cutting-edge technologies</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-300 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#FDB813]/20">
+                        <i data-lucide="cpu" class="w-8 h-8 text-[#FDB813]"></i>
+                    </div>
+                    <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Technology</h3>
+                    <p class="text-gray-600">Leveraging Industry 4.0 for digital transformation</p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-400 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#1e3a5f]/20">
+                        <i data-lucide="users" class="w-8 h-8 text-[#1e3a5f]"></i>
+                    </div>
+                    <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Collaboration</h3>
+                    <p class="text-gray-600">Bringing together innovators, researchers, and industry</p>
+                </div>
+            </div>
 
-
-</section>
-
-    <!-- <div class="card">
-        <div class="welcome-body">
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>About the Hackathon</th>
-                        <th>Activity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>The Innovation for MSME 4.0: National Hackathon Series 2025 is a flagship initiative supported by the Ministry of Heavy Industries (MHI), Government of India, and organised by Indian Institute of Science.</td>
-                        <td>The series aims to identify and nurture innovative technology-based solutions that will help Indian Micro, Small, and Medium Enterprises (MSMEs) accelerate digital transformation and the adoption of Industry 4.0 technologies.</td>
-                    </tr>
-                    <tr>
-                        <td>Each Hackathon will be an independent 2-day event bringing together innovators, researchers, start-ups, and MSME collaborators to develop actionable prototypes and business concepts that enhance the competitiveness of Indian manufacturing.
-                        The most promising teams will be incubated at Indian Institute of Science under the MHI-supported MSME 4.0 Innovation Programme.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Key Points -->
+            <div class="bg-gradient-to-r from-[#1e3a5f] to-[#2d5680] rounded-2xl p-8 md:p-12 text-white fade-up">
+                <h3 class="text-2xl md:text-3xl mb-8 font-medium">How is this Hackathon different?</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="flex gap-4">
+                        <div class="w-2 h-2 bg-[#FDB813] rounded-full mt-2 flex-shrink-0"></div>
+                        <p class="text-gray-100">There are no "winners". All promising teams will be selected for
+                            incubation.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-2 h-2 bg-[#FDB813] rounded-full mt-2 flex-shrink-0"></div>
+                        <p class="text-gray-100">Hackathon is not the end, but the beginning of the Process -
+                            technology and business development.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-2 h-2 bg-[#FDB813] rounded-full mt-2 flex-shrink-0"></div>
+                        <p class="text-gray-100">1:1 mentoring by dedicated faculty experts of Indian Institute of
+                            Science.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> -->
-    <br>
-
-    <!-- <h2>Mentor Allocation</h2>
-    <div class="card">
-        <div class="welcome-body">
-            <ul>
-                <li>30 problem statements → 30 incubate teams</li>
-                <li>Each problem statement assigned 1 mentor based on expertise.</li>
-                <li>Mentors guide teams through idea validation, prototyping, and pitching.</li>
-                <li>Mentors may be distributed across domains to ensure balanced support.</li>
-            </ul>
+    </section>
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 bg-gradient-to-br from-[#f5f7fa] to-[#e8f4f8] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: radial-gradient(circle at 1px 1px, #1e3a5f 1px, transparent 0); background-size: 40px 40px;">
         </div>
-    </div>
-    <br> -->
 
-    <!-- <h2>Detailed Hackathon Day Agenda</h2>
-    <div class="card">
-        <div class="welcome-body">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-block mb-4">
+                    <span class="text-[#FDB813] text-sm uppercase tracking-wider">Important Dates</span>
+                    <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">Timeline & Milestones</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Mark your calendar for these important dates</p>
+            </div>
 
-            <h3>Day 1 — Kickoff &amp; Ideation</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Activity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>08:30 – 09:30 AM</td>
-                        <td>Registration &amp; Welcome Kit Distribution: Teams check-in, receive badges, kits, Wi-Fi
-                            access, and
-                            seating arrangements.</td>
-                    </tr>
-                    <tr>
-                        <td>09:30 – 10:00 AM</td>
-                        <td>Inaugural Session: Opening remarks, objectives of hackathon, rules briefing, introduction of
-                            jury
-                            and mentors.</td>
-                    </tr>
-                    <tr>
-                        <td>10:00 – 11:00 AM</td>
-                        <td>Icebreaker &amp; Team Sync: Networking activities, teams refine problem understanding, and
-                            sync with
-                            mentors.</td>
-                    </tr>
-                    <tr>
-                        <td>11:00 – 01:00 PM</td>
-                        <td>Round 1 – Idea Pitch: Each team presents a 5-min pitch of their solution concept, receives
-                            feedback
-                            from mentors/judges.</td>
-                    </tr>
-                    <tr>
-                        <td>01:00 – 02:00 PM</td>
-                        <td>Lunch &amp; Informal Networking with mentors, organizers, and peers.</td>
-                    </tr>
-                    <tr>
-                        <td>02:00 – 06:00 PM</td>
-                        <td>Round 2 – Prototyping Sprint: Teams develop working prototypes/PoCs. Mentors rotate to guide
-                            teams.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>03:30 – 04:00 PM</td>
-                        <td>Mentor Checkpoint: Midway feedback session to validate technical approach and business
-                            logic.</td>
-                    </tr>
-                    <tr>
-                        <td>06:00 – 07:30 PM</td>
-                        <td>Round 3 – Final Pitch Preparation: Teams refine prototype, prepare slides, rehearse pitch.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>07:30 – 09:00 PM</td>
-                        <td>Final Presentations: Each team presents prototype + business model to jury panel.</td>
-                    </tr>
-                    <tr>
-                        <td>09:00 – 09:30 PM</td>
-                        <td>Jury Deliberation: Judges evaluate based on criteria (innovation, feasibility, scalability,
-                            etc.).
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>09:30 – 10:00 PM</td>
-                        <td>Valedictory &amp; Awards Ceremony: Winners announced, certificates, prizes, and incubation
-                            offers
-                            distributed.</td>
-                    </tr>
-                    <tr>
-                        <td>10:00 PM onwards</td>
-                        <td>Networking &amp; Wrap-up: Teams interact with mentors, corporates, and incubator
-                            representatives for
-                            next steps.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Desktop Timeline -->
+            <div class="hidden md:block relative">
+                <div
+                    class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#1e3a5f] via-[#FDB813] to-[#1e3a5f] transform -translate-y-1/2">
+                </div>
 
-            <h3>Day 2 — Prototype &amp; Pitch</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Time</th>
-                        <th>Activity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>09:00 – 12:00 PM</td>
-                        <td>Prototype Development: Teams work on simulations, coding, mock-ups, integration. Mentors do
-                            floor-walks to check progress.</td>
-                    </tr>
-                    <tr>
-                        <td>12:00 – 01:00 PM</td>
-                        <td>Mid-Review Checkpoint: Teams present prototype progress to mentors for adjustments.</td>
-                    </tr>
-                    <tr>
-                        <td>01:00 – 02:00 PM</td>
-                        <td>Lunch Break.</td>
-                    </tr>
-                    <tr>
-                        <td>02:00 – 04:00 PM</td>
-                        <td>Final Prototype &amp; Business Model Prep: Teams finalize demo, business model canvas, and
-                            pitch
-                            deck.</td>
-                    </tr>
-                    <tr>
-                        <td>04:00 – 06:00 PM</td>
-                        <td>Final Presentations: Each team gets 10 minutes (7-min presentation + 3-min Q&amp;A).</td>
-                    </tr>
-                    <tr>
-                        <td>06:00 – 07:00 PM</td>
-                        <td>Jury Deliberation &amp; Networking: Judges finalize winners, teams interact with mentors and
-                            industry guests.</td>
-                    </tr>
-                    <tr>
-                        <td>07:00 PM onwards</td>
-                        <td>Awards &amp; Closing Ceremony: Winners announced, special mentions, outline of incubation
-                            pathway
-                            and next steps.</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Event 1 -->
+                    <div class="relative fade-up transition-delay-0">
+                        <div
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg z-10">
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all mt-8 border border-gray-200">
+                            <div
+                                class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-[#1e3a5f]/20">
+                                <i data-lucide="calendar" class="w-7 h-7 text-[#1e3a5f]"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-[#FDB813] text-sm mb-2">11:59 PM</div>
+                                <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Registration Deadline</h3>
+                                <p class="text-gray-500 text-sm mb-3">December 26, 2025</p>
+                                <p class="text-gray-600">Last date to register for the hackathon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Event 2 -->
+                    <div class="relative fade-up transition-delay-200">
+                        <div
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg z-10">
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all mt-8 border-2 border-[#FDB813]">
+                            <div
+                                class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-[#FDB813]">
+                                <i data-lucide="rocket" class="w-7 h-7 text-white"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-[#FDB813] text-sm mb-2">Full Days</div>
+                                <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Hackathon Event</h3>
+                                <p class="text-gray-500 text-sm mb-3">January 10-11, 2026</p>
+                                <p class="text-gray-600">2-day intensive innovation sprint</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Event 3 -->
+                    <div class="relative fade-up transition-delay-400">
+                        <div
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg z-10">
+                        </div>
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all mt-8 border border-gray-200">
+                            <div
+                                class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-[#1e3a5f]/20">
+                                <i data-lucide="clock" class="w-7 h-7 text-[#1e3a5f]"></i>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-[#FDB813] text-sm mb-2">TBA</div>
+                                <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Incubation Starts</h3>
+                                <p class="text-gray-500 text-sm mb-3">February 2026</p>
+                                <p class="text-gray-600">Selected teams begin incubation at IISc</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Timeline -->
+            <div class="md:hidden space-y-6">
+                <!-- Event 1 Mobile -->
+                <div class="relative pl-12 fade-right">
+                    <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-gradient-to-b from-[#FDB813] to-[#1e3a5f]">
+                    </div>
+                    <div
+                        class="absolute left-3 top-6 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg">
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#1e3a5f]/20">
+                                <i data-lucide="calendar" class="w-6 h-6 text-[#1e3a5f]"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-[#FDB813] text-sm mb-1">11:59 PM</div>
+                                <h3 class="text-lg text-[#1e3a5f] mb-1 font-medium">Registration Deadline</h3>
+                                <p class="text-gray-500 text-sm mb-2">December 26, 2025</p>
+                                <p class="text-gray-600 text-sm">Last date to register</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 2 Mobile -->
+                <div class="relative pl-12 fade-right transition-delay-100">
+                    <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-gradient-to-b from-[#FDB813] to-[#1e3a5f]">
+                    </div>
+                    <div
+                        class="absolute left-3 top-6 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg">
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-[#FDB813]">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#FDB813]">
+                                <i data-lucide="rocket" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-[#FDB813] text-sm mb-1">Full Days</div>
+                                <h3 class="text-lg text-[#1e3a5f] mb-1 font-medium">Hackathon Event</h3>
+                                <p class="text-gray-500 text-sm mb-2">January 10-11, 2026</p>
+                                <p class="text-gray-600 text-sm">2-day intensive sprint</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 3 Mobile -->
+                <div class="relative pl-12 fade-right transition-delay-200">
+                    <div
+                        class="absolute left-3 top-6 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg">
+                    </div>
+                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#1e3a5f]/20">
+                                <i data-lucide="clock" class="w-6 h-6 text-[#1e3a5f]"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-[#FDB813] text-sm mb-1">TBA</div>
+                                <h3 class="text-lg text-[#1e3a5f] mb-1 font-medium">Incubation Starts</h3>
+                                <p class="text-gray-500 text-sm mb-2">February 2026</p>
+                                <p class="text-gray-600 text-sm">Start of incubation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16 fade-up">
+                <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025" target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2 transform hover:scale-105 active:scale-95">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    Register Before Deadline
+                </a>
+            </div>
         </div>
-    </div>
-    <br> -->
+    </section>
+    <!-- Themes Section -->
+    <section id="themes" class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute top-20 left-0 w-64 h-64 bg-[#FDB813] opacity-5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-0 w-96 h-96 bg-[#1e3a5f] opacity-5 rounded-full blur-3xl"></div>
 
-    <h2>Hackathon Rules</h2>
-    <div class="card">
-        <div class="welcome-body">
-            <!-- <h3>Hackathon Rules &amp; Regulations</h3> -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-block mb-4">
+                    <span class="text-[#FDB813] text-sm uppercase tracking-wider">Focus Areas</span>
+                    <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">Innovation Themes</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">The problems are associated with one or more of
+                    the following themes</p>
+            </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Criteria Name</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Eligibility</td>
-                        <td>
-                            All participants must be aged over 18 years at the time of registration, and meet the eligibility criteria outlined below. 
-                            <ul>
-                                <li>Educational Qualification: Applicants must hold at least a bachelor’s degree from a recognized university or institution. Open to professionals, researchers, and entrepreneurs.</li>
-                                <li>Academic Performance: Candidates should demonstrate a strong academic record, typically reflected through above-average grades, academic achievements, or relevant project experience.</li>
-                                <li>Relevant Skills: Applicants are expected to possess technical, social, managerial and/or entrepreneurial skills aligned with the themes and problem statements of the hackathon.</li>
-                                <li>Documentation: All required documents — including degree certificates, academic transcripts, and supporting evidence of relevant skills or experience — must be submitted at the time of application.</li>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Themes generated dynamically for brevity in pure HTML, but here is the manual block -->
+                <!-- Theme 1 -->
+                <div
+                    class="group relative fade-up transition-delay-0 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="activity" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                Production Monitoring</h3>
+                            <p class="text-gray-600 leading-relaxed">Real-time tracking and optimization of
+                                production processes</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 2 -->
+                <div
+                    class="group relative fade-up transition-delay-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="package" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                Asset Tracking</h3>
+                            <p class="text-gray-600 leading-relaxed">End-to-end visibility of assets and materials
+                                throughout the supply chain</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 3 -->
+                <div
+                    class="group relative fade-up transition-delay-200 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="clipboard-check" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                Quality Control</h3>
+                            <p class="text-gray-600 leading-relaxed">Automated inspection and quality assurance
+                                systems</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 4 -->
+                <div
+                    class="group relative fade-up transition-delay-0 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="shield-check" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                Health & Safety</h3>
+                            <p class="text-gray-600 leading-relaxed">Worker safety monitoring and hazard prevention
+                                solutions</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 5 -->
+                <div
+                    class="group relative fade-up transition-delay-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="wifi" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                IoT/CPS</h3>
+                            <p class="text-gray-600 leading-relaxed">Internet of Things and Cyber-Physical Systems
+                                integration</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 6 -->
+                <div
+                    class="group relative fade-up transition-delay-200 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="graduation-cap" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                Upskilling</h3>
+                            <p class="text-gray-600 leading-relaxed">Digital training and workforce development
+                                platforms</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 7 -->
+                <div
+                    class="group relative fade-up transition-delay-0 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="wrench" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                Maintenance</h3>
+                            <p class="text-gray-600 leading-relaxed">Predictive maintenance and equipment lifecycle
+                                management</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 8 -->
+                <div
+                    class="group relative fade-up transition-delay-100 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="lock" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                Cybersecurity</h3>
+                            <p class="text-gray-600 leading-relaxed">Protecting manufacturing systems from digital
+                                threats</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme 9 -->
+                <div
+                    class="group relative fade-up transition-delay-200 hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                        </div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                <i data-lucide="glasses" class="text-white w-8 h-8"></i>
+                            </div>
+                            <h3
+                                class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                AR/VR/MR</h3>
+                            <p class="text-gray-600 leading-relaxed">Immersive technologies for training, design,
+                                and remote assistance</p>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gradient-to-br from-[#f5f7fa] to-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="conveyor" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <rect x="40" y="0" width="20" height="100" fill="#1e3a5f" />
+                        <circle cx="50" cy="20" r="8" fill="#FDB813" />
+                        <circle cx="50" cy="50" r="8" fill="#FDB813" />
+                        <circle cx="50" cy="80" r="8" fill="#FDB813" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#conveyor)" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-block mb-4">
+                    <span class="text-[#FDB813] text-sm uppercase tracking-wider">The Process</span>
+                    <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">How It Works</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Your journey from registration to
+                    commercialisation in five simple steps</p>
+            </div>
+
+            <!-- Desktop Vertical Timeline -->
+            <div class="hidden md:block relative max-w-5xl mx-auto">
+                <div class="absolute left-1/2 top-0 bottom-0 w-1 -ml-0.5">
+                    <div class="h-full bg-gradient-to-b from-[#FDB813] via-[#1e3a5f] to-[#FDB813]"></div>
+                </div>
+
+                <div class="space-y-24">
+                    <!-- Step 1 -->
+                    <div class="relative flex items-center gap-8 flex-row fade-right transition-delay-0">
+                        <div class="w-1/2">
+                            <div
+                                class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#FDB813]">
+                                <div class="relative z-10 mb-6 flex justify-center">
+                                    <div
+                                        class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                        <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                            style="background: linear-gradient(135deg, #FDB813 0%, #FFA000 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                            <i data-lucide="user-plus" class="text-white w-9 h-9"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl mb-3 text-center text-[#FDB813] font-medium">Register</h3>
+                                    <p class="text-gray-600 text-center leading-relaxed">Complete your individual
+                                        registration with all required documents and credentials</p>
+                                </div>
+                                <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#FDB813]">
+                                    01</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                            <div
+                                class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#FDB813] to-[#FFA000]">
+                                <span class="text-xs opacity-80">STEP</span>
+                                <span class="text-2xl font-bold">01</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex items-center gap-8 flex-row-reverse fade-left transition-delay-100">
+                        <div class="w-1/2">
+                            <div
+                                class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#1e3a5f]">
+                                <div class="relative z-10 mb-6 flex justify-center">
+                                    <div
+                                        class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                        <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                            style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5680 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                            <i data-lucide="video" class="text-white w-9 h-9"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl mb-3 text-center text-[#1e3a5f] font-medium">Webinars &
+                                        Workshops</h3>
+                                    <p class="text-gray-600 text-center leading-relaxed">Participate in expert-led
+                                        webinars and hands-on workshops to prepare for the hackathon</p>
+                                </div>
+                                <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#1e3a5f]">
+                                    02</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                            <div
+                                class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#1e3a5f] to-[#2d5680]">
+                                <span class="text-xs opacity-80">STEP</span>
+                                <span class="text-2xl font-bold">02</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex items-center gap-8 flex-row fade-right transition-delay-200">
+                        <div class="w-1/2">
+                            <div
+                                class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#FDB813]">
+                                <div class="relative z-10 mb-6 flex justify-center">
+                                    <div
+                                        class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                        <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                            style="background: linear-gradient(135deg, #FDB813 0%, #FFA000 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                            <i data-lucide="lightbulb" class="text-white w-9 h-9"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl mb-3 text-center text-[#FDB813] font-medium">Hackathon</h3>
+                                    <p class="text-gray-600 text-center leading-relaxed">2-day intensive sprint with
+                                        mentorship, prototyping, and pitching</p>
+                                </div>
+                                <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#FDB813]">
+                                    03</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                            <div
+                                class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#FDB813] to-[#FFA000]">
+                                <span class="text-xs opacity-80">STEP</span>
+                                <span class="text-2xl font-bold">03</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex items-center gap-8 flex-row-reverse fade-left transition-delay-300">
+                        <div class="w-1/2">
+                            <div
+                                class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#1e3a5f]">
+                                <div class="relative z-10 mb-6 flex justify-center">
+                                    <div
+                                        class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                        <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                            style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5680 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                            <i data-lucide="trophy" class="text-white w-9 h-9"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl mb-3 text-center text-[#1e3a5f] font-medium">Incubation</h3>
+                                    <p class="text-gray-600 text-center leading-relaxed">Selected teams receive
+                                        incubation support at Indian Institute of Science</p>
+                                </div>
+                                <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#1e3a5f]">
+                                    04</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                            <div
+                                class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#1e3a5f] to-[#2d5680]">
+                                <span class="text-xs opacity-80">STEP</span>
+                                <span class="text-2xl font-bold">04</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative flex items-center gap-8 flex-row fade-right transition-delay-0">
+                        <div class="w-1/2">
+                            <div
+                                class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#FDB813]">
+                                <div class="relative z-10 mb-6 flex justify-center">
+                                    <div
+                                        class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                        <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                            style="background: linear-gradient(135deg, #FDB813 0%, #FFA000 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                            <i data-lucide="rocket" class="text-white w-9 h-9"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative z-10">
+                                    <h3 class="text-2xl mb-3 text-center text-[#FDB813] font-medium">
+                                        Commercialisation</h3>
+                                    <p class="text-gray-600 text-center leading-relaxed">Register your startup and
+                                        launch it in the market with ongoing support</p>
+                                </div>
+                                <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#FDB813]">
+                                    05</div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                            <div
+                                class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#FDB813] to-[#FFA000]">
+                                <span class="text-xs opacity-80">STEP</span>
+                                <span class="text-2xl font-bold">05</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Vertical Flow -->
+            <div class="md:hidden space-y-8">
+                <!-- Mobile Steps omitted for brevity but standard card layout -->
+                <!-- ... Similar structure to desktop but simplified ... -->
+            </div>
+
+            <div class="mt-16 bg-gradient-to-r from-[#FDB813] to-[#FFA000] rounded-2xl p-8 md:p-12 text-white fade-up">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl mb-2 font-bold">2-3</div>
+                        <div class="text-white/90">Members per Team</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl mb-2 font-bold">33hrs</div>
+                        <div class="text-white/90">Intensive Problem-Solving</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl mb-2 font-bold">IISc</div>
+                        <div class="text-white/90">Incubation Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Rules Section -->
+    <section id="rules" class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5"
+            style="background-image: linear-gradient(30deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f), linear-gradient(150deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f), linear-gradient(30deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f), linear-gradient(150deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f); background-size: 80px 140px; background-position: 0 0, 0 0, 40px 70px, 40px 70px;">
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <div class="inline-block mb-4">
+                    <span class="text-[#FDB813] text-sm uppercase tracking-wider">Guidelines</span>
+                    <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                </div>
+                <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">Hackathon Rules</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Everything you need to know about participation
+                    requirements and guidelines</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Rule 1 -->
+                <div class="fade-up transition-delay-0">
+                    <button
+                        class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                    <span>1</span>
+                                </div>
+                                <h3 class="text-xl text-[#1e3a5f] font-medium">Eligibility</h3>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="rule-content hidden overflow-hidden">
+                        <div
+                            class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">All participants must be aged over 18 years at
+                                        the time of registration</span></li>
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">Educational Qualification: Must hold at least a
+                                        bachelor's degree from a recognized university or institution</span></li>
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">Open to professionals, researchers, and
+                                        entrepreneurs</span></li>
                             </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Registration</td>
-                        <td>
-                            Each participant must register individually through the official portal. All required documents — including degree certificates, academic transcripts, and supporting evidence of relevant skills or experience — must be submitted at the time of application.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Team Formation</td>
-                        <td>
-                            Teams of 2–4 members will be formed during the hackathon through interaction sessions.
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </div>
 
-                    <tr>
-                        <td>4</td>
-                        <td>Problem Statement Selection</td>
-                        <td>
-                            Each team will initially select three problem statements from the published list. Organizers will evaluate and allocate one problem statement to each team. If multiple teams select the same problem, organizers may reassign teams and/or allocate a separate problem (which may not be from among the three problems proposed by the teams) to each team during the hackathon to ensure balanced participation, optimal fit, and diversity of solutions.
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>5</td>
-                        <td>Mentorship &amp; External Assistance</td>
-                        <td>
-                            Each team will be assigned one or more mentors for guidance based on expertise. Mentors will guide teams through idea validation, prototyping, and pitching. Mentors can advise on feasibility and approach but will not develop code or prototypes. External assistance beyond mentors is not allowed unless specifically approved by organizers. 
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>6</td>
-                        <td>Hackathon Structure</td>
-                        <td>
-                            The stages of the hackathon will be Revelation of Problem Statements, Methodological Instructions by faculty experts, Team formation, brainstorming, Mentor Allocation, Idea Pitch, Concept design, PoC prototype development and Final pitch. There will be multiple pitch rounds and Progress reviews in between. The detailed schedule will be shared with the registered participants.
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>7</td>
-                        <td>Use of Resources</td>
-                        <td>
-                            Teams may use open-source libraries, frameworks, and publicly available APIs, respecting licensing terms. Pre-existing proprietary software, hardware, or code requires explicit prior approval. Most of the solution must be developed during the hackathon.
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>8</td>
-                        <td>Deliverables</td>
-                        <td>
-                            Each team must submit the following: (Please see IP terms below*)
-                            <ul>
-                                <li>Idea Pitch Deck (Round 1) – problem statement, solution approach, feasibility.</li>
-                                <li>Prototype / MVP (Round 2) – working demo or functional PoC.</li>
-                                <li>Final Presentation (Round 3) – prototype demo, business model, scalability plan.
-                                </li>
-                                <li>Source Code &amp; Documentation – to be shared with organizers for validation.</li>
+                <!-- Rule 2 -->
+                <div class="fade-up transition-delay-100">
+                    <button
+                        class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                    <span>2</span>
+                                </div>
+                                <h3 class="text-xl text-[#1e3a5f] font-medium">Registration</h3>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="rule-content hidden overflow-hidden">
+                        <div
+                            class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">Each participant must register individually
+                                        through the official portal</span></li>
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">All required documents must be submitted at the
+                                        time of application</span></li>
                             </ul>
-                            All deliverables must be in English and submitted through the official hackathon portal.
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </div>
 
-                    <tr>
-                        <td>9</td>
-                        <td>Code of Conduct</td>
-                        <td>
-                            Participants must act with integrity, professionalism, and respect. 
-                            <ul>
-                                <li>Misconduct, harassment, discrimination, or offensive behaviour will lead to immediate disqualification.</li>
-                                <li>Compliance with venue, safety, security, and IT policies is mandatory.</li>
-                                <li>Alcohol, drugs, or prohibited substances are strictly banned.</li>
+                <!-- Rule 3 -->
+                <div class="fade-up transition-delay-200">
+                    <button
+                        class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                    <span>3</span>
+                                </div>
+                                <h3 class="text-xl text-[#1e3a5f] font-medium">Team Formation</h3>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="rule-content hidden overflow-hidden">
+                        <div
+                            class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">Teams of 2-3 members will be formed during the
+                                        hackathon</span></li>
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">Team formation happens through interaction
+                                        sessions at the event</span></li>
                             </ul>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </div>
 
-                    <tr>
-                        <td>10</td>
-                        <td>Judging &amp; Evaluation</td>
-                        <td>
-                            Judges will assess each criterion based on both qualitative and quantitative aspects, ensuring a balanced evaluation of creativity, technical feasibility, business potential, scalability, and teamwork. Evaluation will be conducted in three stages, aligned with the hackathon rounds: 
-                            <ul>
-                                <li>Idea Pitch: Judges review clarity of problem understanding, originality of the solution, and potential business impact.</li>
-                                <li>Prototype / PoC Development: Judges assess the working prototype for functionality, integration of Industry 4.0 technologies, feasibility, and demonstration of real-world applicability.</li>
-                                <li>Final Pitch: Judges evaluate the complete solution, including technical performance, industrial scalability, sustainability, business model, novelty of the solution, and team presentation.</li>
+                <!-- Rule 4 -->
+                <div class="fade-up transition-delay-300">
+                    <button
+                        class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                    <span>4</span>
+                                </div>
+                                <h3 class="text-xl text-[#1e3a5f] font-medium">Problem Statement Selection</h3>
+                            </div>
+                            <i data-lucide="chevron-down"
+                                class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="rule-content hidden overflow-hidden">
+                        <div
+                            class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">Each team will initially select three problem
+                                        statements from the published list</span></li>
+                                <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                        class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                        class="text-gray-700 flex-1">Organizers will evaluate and allocate one
+                                        problem statement to each team</span></li>
                             </ul>
-                            Judges’ decisions are final and binding. No appeals will be entertained. Tiebreakers may be decided by an additional Q&amp;A round with shortlisted teams.
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    <tr>
-                        <td>11</td>
-                        <td>Intellectual Property (IP) &amp; Incubation</td>
-                        <td>
-                            All teams participating in the hackathon should be committed to be involved, under IISc leadership, in subsequent technology development and incubation and adhere to the milestones and deliverables associated with these.
-                            <ul>
-                                <li>Selected teams will be committed to start the activities mentioned above from 1 Dec 2025.</li>
-                                <li>*As mandated by the funding partners all the materials developed and associated IP will be owned by FSID/IISc, MHI and Tata Steel.</li>
-                                <li>IP terms (ownership, licensing, or revenue-sharing) related to subsequent involvement of the teams in project will be defined in a separate agreement/MoU. Each incubate shall sign a legally binding MoU with FSID/IISc or its authorized partner, outlining obligations, deliverables, IP rights, confidentiality, and termination conditions.</li>
-                                <li>Failure to execute work as planned in the project, show progress, or deliver as planned may lead to withdrawal of support, forfeiture of benefits, and recovery of funds or resources as per the MoU. Periodic performance reviews will determine continuation; non-compliance or breach will result in termination of incubation, and IISc’s decision under the MoU will be final and enforceable.</li>
-                            </ul>
-                             
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>12</td>
-                        <td>Confidentiality &amp; Data Usage</td>
-                        <td>
-                            Any datasets provided by organizers must be used only for hackathon purposes. Teams must not
-                            disclose confidential data or proprietary information of the organizers, mentors, or
-                            partners.
-                            Violation may result in legal action.
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>13</td>
-                        <td>Liability &amp; Disclaimer</td>
-                        <td>
-                            Organizers are not responsible for:    
-                            <ul>
-                                <li>Loss or damage of personal belongings.</li>
-                                <li>Health issues or accidents not directly caused by organizational negligence.</li>
-                                <li>Failure of internet, electricity, or external services.</li>
-                                <li>Participants agree to indemnify organizers, sponsors, and partners against any claims arising from their participation.</li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>14</td>
-                        <td>General Provisions</td>
-                        <td>
-                            Organisers reserve the right to amend the schedule, rules, or evaluation process with prior notice.
-                            Misrepresentation of information, plagiarism, or rule violations will result in immediate disqualification. 
-                            Participation in the hackathon implies acceptance of these rules and the organisers’ decisions as final and legally binding.
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>15</td>
-                        <td>Awards &amp; Recognitions</td>
-                        <td>
-                            No formal winners will be declared. Instead, a certain number of teams will be selected for incubation. 
-                            Teams not selected for incubation will receive certificates of participation. 
-                            Selected teams will be part of technology development and incubation projects at IISc, where each project will receive mentorship, funding support, prototyping support and connections with Industry partners.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="mt-12 bg-gradient-to-r from-[#1e3a5f] to-[#2d5680] rounded-2xl p-8 text-white fade-up">
+                <h4 class="text-xl mb-3 font-medium">Important Note</h4>
+                <p class="text-gray-100">The detailed hackathon schedule, including all stages and timings, will be
+                    shared with registered participants. Make sure to complete your registration and submit all
+                    required documents before the deadline.</p>
+            </div>
         </div>
-    </div>
-    <br>
-
-    <!-- <h2>FAQs</h2>
-    <div class="card">
-        <div class="welcome-body">
-
-            <ul>
-                <li><strong>I am a student. Am I eligible to participate?</strong><br>
-                    If you are selected for incubation, you will need to drop out of your current education program so that you fully commit your time and effort to the startup. Register only if you agree to this condition.
-                </li>
-
-                <li><strong>Can I select my team member/s before the hackathon?</strong><br>
-                    Yes, as long as they agree to teaming up with you and register for the same hackathon as individuals.
-                </li>
-
-                <li><strong>Can I change teams mid-way during the hackathon?</strong><br>
-                    We discourage changing teams. You may change teams until the evening of day-1 by mutual agreement with your previous and new team members, and approval of organisers.
-                </li>
-
-                <li><strong>What if I am unable to join or form a team?</strong><br>
-                    Team formation is the participant's responsibility. We are not bound to enforce team formation.
-                </li>
-
-                <li><strong>What are the technical eligibility requirements?</strong><br>
-                    Participants must have skills relevant to their chosen problem statement. Skillsets and interests are collected during registration, and organizers may guide or flag teams with insufficient expertise.
-                </li>
-
-                <li><strong>What support is provided before and during the event?</strong><br>
-                    Pre-hackathon webinars and Q&amp;A sessions explain problem statements, judging criteria, incubation pathways, and mentor guidelines. Assigned mentors provide ongoing domain guidance without coding.
-                </li>
-
-                <li><strong>How are mentors allocated and managed?</strong><br>
-                    One mentor is assigned per problem or cluster of related problems, providing rotational and virtual guidance to cover all teams effectively.
-                </li>
-
-                <li><strong>What deliverables are expected from each team?</strong><br>
-                    Teams must submit:
-                    <ul>
-                        <li>Round 1: Idea Pitch Deck (problem statement, solution approach, feasibility)</li>
-                        <li>Round 2: Working Prototype/MVP demo</li>
-                        <li>Round 3: Final Presentation including prototype demo, business model, scalability plan</li>
-                        <li>Source Code and documentation</li>
-                    </ul>
-                </li>
-
-                <li><strong>What are the judging criteria?</strong><br>
-                    Judging is based on five equally weighted categories: Innovation &amp; Creativity, Technical Feasibility, Business Viability, Scalability &amp; Sustainability, and Presentation &amp; Teamwork, each contributing 20%.
-                </li>
-
-                <li><strong>What happens if a team cannot complete a prototype?</strong><br>
-                    Teams may submit detailed designs, simulations, or proof of concept documents. Judges consider technical feasibility and team effort as part of evaluation.
-                </li>
-
-                <li><strong>Are there rules regarding the use of software, code, and resources?</strong><br>
-                    Open-source libraries, publicly available APIs, and provided datasets may be used respecting
-                    licensing.
-                    Proprietary or pre-built projects require explicit approval. Majority of development must happen
-                    during hackathon timeframe.
-                </li>
-
-                <li><strong>Can teams consult outside mentors or experts?</strong><br>
-                    Only assigned mentors may provide guidance. External consultation is disallowed unless approved by
-                    organizers.
-                </li>
-
-                <li><strong>How is intellectual property (IP) handled?</strong><br>
-                    Teams retain IP rights over their creations. IP terms for incubation are governed by separate
-                    agreements.
-                    Organizers can use names, photos, and demo content for promotion with team consent.
-                </li>
-
-                <li><strong>What if external services fail during the event?</strong><br>
-                    Organizers are not responsible for failures of internet, electricity, or other external services but
-                    will try to assist where possible.
-                </li>
-
-                <li><strong>How are disputes or misconduct handled?</strong><br>
-                    A strict code of conduct applies. Violations (harassment, discrimination, unprofessional behavior)
-                    may lead to disqualification. Organizers mediate disputes; decisions are final.
-                </li>
-
-                <li><strong>How is confidentiality maintained?</strong><br>
-                    Teams must use datasets only for hackathon purposes and keep organizer or partner data confidential.
-                    Legal actions apply on violations.
-                </li>
-
-                <li><strong>How are winners selected and recognized?</strong><br>
-                    No winners are officially declared. Teams selected should be ready for incubation and are expected to fully commit to further developing their solutions, with guidance from mentors and access to incubation resources.
-                </li>
-
-                <li><strong>What does post-hackathon incubation involve?</strong><br>
-                    Promising teams receive mentorship and provide support for seed funding, support in industry
-                    connections and pilot runs, and 3–6 months of monitoring from the start of the program.
-                </li>
-
-                <li><strong>How is management of ~50 problem statements handled?</strong><br>
-                    Organizers balance team distribution across problem statements, merging or reallocating teams to
-                    lesser-chosen problems to ensure competition.
-                </li>
-
-                <li><strong>What if some problems have very few participants?</strong><br>
-                    Problem statements may be combined or teams encouraged to change their selection early in
-                    registration to maintain problem engagement.
-                </li>
-
-                <li><strong>How are incomplete teams or dropouts mitigated?</strong><br>
-                    Pre-event orientation stresses commitment. Standby participants and team merges help address
-                    dropouts.
-                    Mentors conduct checkpoints to identify issues early.
-                </li>
-
-                <li><strong>Can teams change members or problem statements mid-event?</strong><br>
-                    Team compositions are frozen after confirmation; changes require PIO/organizer approval and are
-                    discouraged.
-                </li>
-
-                <li><strong>What if a team member leaves during the event?</strong><br>
-                    Replacement is possible with organizer consent.
-                </li>
-
-                <li><strong>Are presentations public?</strong><br>
-                    Final presentations are delivered before a jury panel and may be open to mentors and other
-                    participants.
-                </li>
-
-                <li><strong>Is networking facilitated?</strong><br>
-                    Multiple sessions for informal networking with mentors, organizers, industry guests, and incubators
-                    are planned.
-                </li>
-
-                <li><strong>Are there participation fees?</strong><br>
-                    The fees are ₹ 530 / head per hackathon.
-                </li>
-
-                <li><strong>How is mentor availability handled when many teams participate?</strong><br>
-                    One mentor per problem or related problem cluster provides rotational support to manage mentoring workload effectively.
-                </li>
-
-                <li><strong>What fallback resources exist if hardware or APIs fail?</strong><br>
-                    Cloud tools, open-source alternatives, and simulations are recommended fallback options.
-                </li>
-
-                <li><strong>Can teams submit alternative approaches if prototyping fully isn't feasible?</strong><br>
-                    Yes, simulations, conceptual designs, and documentation are acceptable alternatives.
-                </li>
-
-                <li><strong>How are remote participation and time zones managed for hackathon?</strong><br>
-                    Remote participation is not encouraged.
-                </li>
-
-                <li><strong>What coding and presentation languages are allowed?</strong><br>
-                    Any coding language is allowed; presentations and documentation must be in English.
-                </li>
-
-                <li><strong>How are IP disputes among team members resolved?</strong><br>
-                    Teams should agree on IP ownership beforehand; organizers provide guidance but do not mediate legal disputes.
-                </li>
-
-                <li><strong>Can teams submit fixes after the deadline?</strong><br>
-                    No late submissions are allowed; incubation phase may allow post-event improvements.
-                </li>
-
-                <li><strong>Is participant feedback provided after the event?</strong><br>
-                    Feedback sessions or reports from judges and mentors are offered post-event.
-                </li>
-
-                <li><strong>What ensures judging fairness and transparency?</strong><br>
-                    Final decision will be by Jury at IISc, according to the established, balanced criteria
-                </li>
-
-                <li><strong>How are technical submission issues handled?</strong><br>
-                    Teams must ensure proper formatting and functionality pre-deadline; support is offered before but not after the deadline.
-                </li>
-            </ul>
+    </section>
+    <!-- Partners Section -->
+    <section id="partners" class="py-20 bg-gradient-to-br from-[#f5f7fa] to-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#1e3a5f] via-[#FDB813] to-[#1e3a5f]">
         </div>
-    </div> -->
-</section>
 
-<section class="partner-section">
-    <div class="partner-card">
-        <h4>Our Partners</h4>
-        <div class="partner-logos">
-            <img src="partner logos/DM_Logo.png">
-            <img src="partner logos/Ministry_of_Heavy_Industries_India.svg.png">
-            <img src="partner logos/tata-steel-logo.png">
-            <!--<img src="partner logos/Toyota_logo_(Red).png">
-			  
-			   Add more logos as needed -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="sr-only">Our Partners</h2>
+
+            <div class="flex flex-col md:flex-row gap-8 items-center justify-center max-w-5xl mx-auto fade-up">
+                <!-- Organized By -->
+                <div class="flex flex-col items-center">
+                    <span class="text-[#1e3a5f] text-sm font-bold uppercase tracking-wider mb-4">Organized By</span>
+                    <div
+                        class="bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-[#FDB813] transition-all shadow-lg hover:-translate-y-1">
+                        <img src="assets/927a826e350689e0d10cf0a5f7b0465abfa56280.png" alt="Digital Manufacturing"
+                            class="h-20 w-auto object-contain">
+                    </div>
+                </div>
+
+                <!-- Supported By -->
+                <div class="flex flex-col items-center">
+                    <span class="text-[#1e3a5f] text-sm font-bold uppercase tracking-wider mb-4">Supported By</span>
+                    <div class="flex gap-4 items-center">
+                        <div
+                            class="bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-[#FDB813] transition-all shadow-lg hover:-translate-y-1">
+                            <img src="assets/25bb9c3c412d1a328ce46c01267a897060baefbe.png"
+                                alt="Ministry of Heavy Industries" class="h-20 w-auto object-contain">
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-[#FDB813] transition-all shadow-lg hover:-translate-y-1">
+                            <img src="assets/7340f733f8dcc603405ae5c8e3a5d2ce7d1bb0d4.png" alt="Tata Steel"
+                                class="h-20 w-auto object-contain">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+
+        <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#1e3a5f] via-[#FDB813] to-[#1e3a5f]">
+        </div>
+    </section>
+</main>

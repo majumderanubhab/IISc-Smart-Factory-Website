@@ -195,9 +195,30 @@ async function loadPage(page, el) {
         console.error(err);
     }
 
+    // Special handling for hackathon page - load in iframe
+    if (page === 'hackathon') {
+        mainContent.innerHTML = '<iframe src="web/hackathon.html" style="width: 100%; height: 100vh; border: none;" title="Hackathon Page"></iframe>';
+        // Hide main navbar and footer for hackathon page
+        const navbar = document.querySelector('.navbar');
+        const footer = document.querySelector('footer');
+        if (navbar) navbar.style.display = 'none';
+        if (footer) footer.style.display = 'none';
+    } else {
+        // Show navbar and footer for other pages
+        const navbar = document.querySelector('.navbar');
+        const footer = document.querySelector('footer');
+        if (navbar) navbar.style.display = '';
+        if (footer) footer.style.display = '';
+    }
+
     // Update active nav link
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
     el.classList.add('active');
+
+    // Initialize Hackathon page if loaded
+    if (page === 'hackathon' && typeof initHackathonPage === 'function') {
+        initHackathonPage();
+    }
 }
 
 function loadPDF(clickedCard, pdfPath) {
@@ -240,3 +261,123 @@ window.addEventListener("hashchange", function () {
         });
     }
 });
+// Hackathon Page Initialization
+function initHackathonPage() {
+    // Initialize Lucide Icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    // Generate Circuit Nodes in Hero Section
+    const heroBackground = document.getElementById('hero-background');
+    if (heroBackground) {
+        for (let i = 0; i < 8; i++) {
+            const node = document.createElement('div');
+            node.className = 'absolute w-2 h-2 bg-[#FDB813] rounded-full animate-node-pulse';
+            node.style.left = Math.random() * 100 + '%';
+            node.style.top = Math.random() * 100 + '%';
+            const duration = 2 + Math.random() * 2;
+            const delay = Math.random() * 2;
+            node.style.animationDuration = `${duration}s`;
+            node.style.animationDelay = `${delay}s`;
+            heroBackground.appendChild(node);
+        }
+    }
+
+    // Sticky Nav Logic
+    const hackathonNav = document.querySelector('.fixed.top-0.left-0.right-0.z-40');
+    if (hackathonNav) {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                hackathonNav.classList.add('bg-white', 'shadow-lg');
+                hackathonNav.classList.remove('bg-transparent');
+            } else {
+                hackathonNav.classList.remove('bg-white', 'shadow-lg');
+                hackathonNav.classList.add('bg-transparent');
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+    }
+
+    // Mobile Menu Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+        let isMenuOpen = false;
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            const icon = mobileMenuBtn.querySelector('i');
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.style.height = 'auto';
+                mobileMenu.style.opacity = '1';
+                if (icon) icon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.style.height = '0';
+                mobileMenu.style.opacity = '0';
+                if (icon) icon.setAttribute('data-lucide', 'menu');
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a, button').forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) icon.setAttribute('data-lucide', 'menu');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            });
+        });
+    }
+
+    // Scroll Progress Bar
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) {
+        const handleProgress = () => {
+            const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollCurrent = window.scrollY;
+            const scrollPercentage = (scrollCurrent / scrollTotal) * 100;
+            progressBar.style.transform = `scaleX(${scrollPercentage / 100})`;
+        };
+        window.addEventListener('scroll', handleProgress);
+    }
+
+    // Rules Accordion
+    const ruleButtons = document.querySelectorAll('.rule-btn');
+    ruleButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.chevron-icon');
+            const numberBox = btn.querySelector('.number-box');
+            const isHidden = content.classList.contains('hidden');
+
+            // Close all others
+            document.querySelectorAll('.rule-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.rule-btn').forEach(b => {
+                b.classList.remove('border-[#FDB813]', 'shadow-lg');
+                b.classList.add('border-gray-200');
+                const chevron = b.querySelector('.chevron-icon');
+                if (chevron) chevron.style.transform = 'rotate(0deg)';
+                const nb = b.querySelector('.number-box');
+                if (nb) {
+                    nb.classList.remove('bg-[#FDB813]');
+                    nb.classList.add('bg-[#1e3a5f]');
+                }
+            });
+
+            if (isHidden) {
+                content.classList.remove('hidden');
+                btn.classList.remove('border-gray-200');
+                btn.classList.add('border-[#FDB813]', 'shadow-lg');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+                if (numberBox) {
+                    numberBox.classList.remove('bg-[#1e3a5f]');
+                    numberBox.classList.add('bg-[#FDB813]');
+                }
+            }
+        });
+    });
+}

@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechSprint 4.0 - National Hackathon Series 2025-26</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#f5f7fa] text-gray-900 overflow-x-hidden">
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FDB813] to-[#FFA000] origin-left z-50 transform scale-x-0 transition-transform duration-100 ease-out">
+    </div>
+
+    <!-- Sticky Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 md:gap-4">
+                    <img src="assets/6da10831fbc863483ad9de887737f339bf3953ed.png" alt="TechSprint 4.0"
+                        class="h-16 md:h-24">
+                    <img src="assets/2d35bf81b57c2bd72d75e583350f0425c9266198.png" alt="4mlabs" class="h-12 md:h-16">
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="../index.html#home" target="_parent"
+                        class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Home</a>
+                    <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+                        class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">About</button>
+                    <button onclick="document.getElementById('timeline').scrollIntoView({behavior: 'smooth'})"
+                        class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Timeline</button>
+                    <button onclick="document.getElementById('themes').scrollIntoView({behavior: 'smooth'})"
+                        class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Themes</button>
+                    <button onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})"
+                        class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Process</button>
+                    <button onclick="document.getElementById('rules').scrollIntoView({behavior: 'smooth'})"
+                        class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Rules</button>
+                    <button onclick="document.getElementById('partners').scrollIntoView({behavior: 'smooth'})"
+                        class="text-[#1e3a5f] hover:text-[#FDB813] transition-colors">Partners</button>
+                    <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025" target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-6 py-2 rounded-full hover:shadow-lg transition-all transform hover:scale-105 active:scale-95">Register
+                        Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-[#1e3a5f]">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-gray-200 transition-all duration-300 overflow-hidden h-0 opacity-0">
+            <div class="px-4 py-4 space-y-3">
+                <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+                    class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">About</button>
+                <button onclick="document.getElementById('timeline').scrollIntoView({behavior: 'smooth'})"
+                    class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Timeline</button>
+                <button onclick="document.getElementById('themes').scrollIntoView({behavior: 'smooth'})"
+                    class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Themes</button>
+                <button onclick="document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'})"
+                    class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Process</button>
+                <button onclick="document.getElementById('rules').scrollIntoView({behavior: 'smooth'})"
+                    class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Rules</button>
+                <button onclick="document.getElementById('partners').scrollIntoView({behavior: 'smooth'})"
+                    class="block w-full text-left text-[#1e3a5f] hover:text-[#FDB813] py-2 transition-colors">Partners</button>
+                <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025" target="_blank"
+                    rel="noopener noreferrer"
+                    class="block w-full bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-6 py-3 rounded-full text-center">Register
+                    Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <!-- Animated Background -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none" id="hero-background">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#e8f4f8] via-[#f5f7fa] to-[#fff8e6]"></div>
+
+                <!-- Animated Grid -->
+                <svg class="absolute inset-0 w-full h-full opacity-20">
+                    <defs>
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e3a5f" strokeWidth="0.5"></path>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)"></rect>
+                </svg>
+
+                <!-- Shapes -->
+                <div class="absolute top-20 left-20 w-16 h-16 border-4 border-[#FDB813] opacity-30 animate-float-1"
+                    style="border-radius: 30%;"></div>
+
+                <div class="absolute bottom-40 right-32 w-20 h-20 border-4 border-[#1e3a5f] opacity-20 animate-float-2">
+                </div>
+
+                <div class="absolute top-1/2 right-20 w-12 h-12 bg-[#FDB813] opacity-20 animate-pulse-rotate"
+                    style="clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+
+                <!-- Data Flow Lines -->
+                <svg class="absolute inset-0 w-full h-full">
+                    <path d="M 0 100 Q 200 150 400 100 T 800 100" fill="none" stroke="#FDB813" stroke-width="2"
+                        stroke-dasharray="10 10" class="animate-dash-flow" opacity="0.3" />
+                    <path d="M 0 300 Q 300 250 600 300 T 1200 300" fill="none" stroke="#1e3a5f" stroke-width="2"
+                        stroke-dasharray="10 10" class="animate-dash-flow-slow" opacity="0.2" />
+                </svg>
+
+                <!-- Circuit Nodes will be injected here by JS -->
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="space-y-6 fade-right opacity-0 -translate-x-12 transition-all duration-700">
+                        <div class="inline-block">
+                            <span
+                                class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-6 py-3 rounded-full text-base">
+                                National Hackathon Series 2025-26
+                            </span>
+                        </div>
+
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl text-[#1e3a5f] whitespace-nowrap font-medium">
+                            Join India's Manufacturing Revolution!
+                        </h1>
+
+                        <p class="text-lg md:text-xl text-gray-600">
+                            TechSprint 4.0 – Building the future of smart manufacturing with Industry 4.0 technologies
+                        </p>
+
+                        <!-- Event Details -->
+                        <div class="flex flex-col sm:flex-row gap-4 text-sm">
+                            <div class="flex items-center gap-2 text-[#1e3a5f]">
+                                <i data-lucide="calendar" class="w-5 h-5 text-[#FDB813]"></i>
+                                <span><strong>Hackathon:</strong> Jan 10-11, 2026</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-[#1e3a5f]">
+                                <i data-lucide="clock" class="w-5 h-5 text-[#FDB813]"></i>
+                                <span><strong>Register by:</strong> Dec 26, 2025</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025"
+                                target="_blank" rel="noopener noreferrer"
+                                class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all text-center inline-block transform hover:scale-105 active:scale-95">
+                                Register Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Illustration -->
+                    <div
+                        class="relative hidden md:block fade-left opacity-0 translate-x-12 transition-all duration-700">
+                        <div class="relative w-full h-[500px] flex items-center justify-center">
+                            <svg viewBox="0 0 400 400" class="w-full h-full">
+                                <!-- Simple SVG Factory representation for static HTML -->
+                                <circle cx="200" cy="200" r="150" fill="#1e3a5f" opacity="0.05" class="animate-pulse">
+                                </circle>
+
+                                <g class="animate-float-continuous">
+                                    <rect x="150" y="160" width="100" height="120" fill="#1e3a5f" rx="8" />
+                                    <rect x="165" y="175" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                    <rect x="210" y="175" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                    <rect x="165" y="215" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                    <rect x="210" y="215" width="25" height="25" fill="#FDB813" opacity="0.8" />
+                                    <path d="M150 160 L200 120 L250 160" fill="#2d5680" />
+
+                                    <!-- Gears -->
+                                    <g class="animate-spin-slow origin-center" style="transform-origin: 100px 100px;">
+                                        <circle cx="100" cy="100" r="30" fill="none" stroke="#FDB813" stroke-width="4"
+                                            stroke-dasharray="10 5" />
+                                    </g>
+                                    <g class="animate-spin-reverse-slow origin-center"
+                                        style="transform-origin: 300px 240px;">
+                                        <circle cx="300" cy="240" r="25" fill="none" stroke="#FDB813" stroke-width="4"
+                                            stroke-dasharray="8 4" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+                class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-[#1e3a5f] cursor-pointer animate-bounce">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </button>
+        </section>
+        <!-- Promo Video Section -->
+        <section class="py-20 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] relative overflow-hidden">
+            <!-- Decorative Elements -->
+            <div class="absolute top-0 left-0 w-96 h-96 bg-[#FDB813] opacity-10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FDB813] opacity-10 rounded-full blur-3xl"></div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-12 fade-up">
+                    <div class="inline-block mb-4">
+                        <span
+                            class="text-[#FDB813] text-sm uppercase tracking-wider flex items-center gap-2 justify-center">
+                            <i data-lucide="play" class="w-4 h-4"></i>
+                            Watch Now
+                        </span>
+                        <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl text-white mb-4 font-medium">
+                        TechSprint 4.0 Promo
+                    </h2>
+                    <p class="text-gray-200 text-lg max-w-3xl mx-auto">
+                        Discover how we're transforming Indian manufacturing through innovation and collaboration
+                    </p>
+                </div>
+
+                <div
+                    class="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-white/20 fade-up transition-delay-200">
+                    <!-- Video Container -->
+                    <div class="relative bg-black rounded-xl overflow-hidden shadow-2xl">
+                        <div class="flex items-center justify-center min-h-[400px]">
+                            <iframe
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7406259661051588608?compact=1"
+                                height="399" width="504" frameBorder="0" allowFullScreen title="Embedded post"
+                                class="w-full max-w-full"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Decorative corner accents -->
+                    <div class="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-[#FDB813] rounded-tl-lg">
+                    </div>
+                    <div class="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-[#FDB813] rounded-tr-lg">
+                    </div>
+                    <div class="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-[#FDB813] rounded-bl-lg">
+                    </div>
+                    <div class="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-[#FDB813] rounded-br-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#f8f9fa] to-transparent pointer-events-none">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16 fade-up">
+                    <div class="inline-block mb-4">
+                        <span class="text-[#FDB813] text-sm uppercase tracking-wider">About the Event</span>
+                        <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-6 font-medium">
+                        TechSprint 4.0
+                    </h2>
+                    <div class="max-w-4xl mx-auto space-y-4 text-gray-600 text-lg">
+                        <p>
+                            The National Hackathon Series 2025-26 is a flagship initiative supported by the
+                            <span class="text-[#1e3a5f] font-semibold">Ministry of Heavy Industries (MHI)</span>,
+                            Government of India and
+                            <span class="text-[#1e3a5f] font-semibold">Tata Steel</span>, and organised by
+                            <span class="text-[#1e3a5f] font-semibold">Indian Institute of Science</span>.
+                        </p>
+                        <p>
+                            The series aims to identify and nurture innovative technology-based solutions that will help
+                            Indian Manufacturing Micro, Small, and Medium Enterprises (MSMEs) accelerate digital
+                            transformation and the adoption of Industry 4.0 technologies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <!-- Card 1 -->
+                    <div
+                        class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-100 hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#FDB813]/20">
+                            <i data-lucide="lightbulb" class="w-8 h-8 text-[#FDB813]"></i>
+                        </div>
+                        <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Innovation</h3>
+                        <p class="text-gray-600">Fostering breakthrough solutions for manufacturing challenges</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                        class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-200 hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#1e3a5f]/20">
+                            <i data-lucide="factory" class="w-8 h-8 text-[#1e3a5f]"></i>
+                        </div>
+                        <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Manufacturing</h3>
+                        <p class="text-gray-600">Empowering MSMEs with cutting-edge technologies</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                        class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-300 hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#FDB813]/20">
+                            <i data-lucide="cpu" class="w-8 h-8 text-[#FDB813]"></i>
+                        </div>
+                        <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Technology</h3>
+                        <p class="text-gray-600">Leveraging Industry 4.0 for digital transformation</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div
+                        class="feature-card bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-gray-100 group fade-up transition-delay-400 hover:-translate-y-2">
+                        <div
+                            class="w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-[#1e3a5f]/20">
+                            <i data-lucide="users" class="w-8 h-8 text-[#1e3a5f]"></i>
+                        </div>
+                        <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Collaboration</h3>
+                        <p class="text-gray-600">Bringing together innovators, researchers, and industry</p>
+                    </div>
+                </div>
+
+                <!-- Key Points -->
+                <div class="bg-gradient-to-r from-[#1e3a5f] to-[#2d5680] rounded-2xl p-8 md:p-12 text-white fade-up">
+                    <h3 class="text-2xl md:text-3xl mb-8 font-medium">How is this Hackathon different?</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 bg-[#FDB813] rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-100">There are no "winners". All promising teams will be selected for
+                                incubation.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 bg-[#FDB813] rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-100">Hackathon is not the end, but the beginning of the Process -
+                                technology and business development.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-2 h-2 bg-[#FDB813] rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-100">1:1 mentoring by dedicated faculty experts of Indian Institute of
+                                Science.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline Section -->
+        <section id="timeline" class="py-20 bg-gradient-to-br from-[#f5f7fa] to-[#e8f4f8] relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: radial-gradient(circle at 1px 1px, #1e3a5f 1px, transparent 0); background-size: 40px 40px;">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16 fade-up">
+                    <div class="inline-block mb-4">
+                        <span class="text-[#FDB813] text-sm uppercase tracking-wider">Important Dates</span>
+                        <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">Timeline & Milestones</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Mark your calendar for these important dates</p>
+                </div>
+
+                <!-- Desktop Timeline -->
+                <div class="hidden md:block relative">
+                    <div
+                        class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#1e3a5f] via-[#FDB813] to-[#1e3a5f] transform -translate-y-1/2">
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Event 1 -->
+                        <div class="relative fade-up transition-delay-0">
+                            <div
+                                class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg z-10">
+                            </div>
+                            <div
+                                class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all mt-8 border border-gray-200">
+                                <div
+                                    class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-[#1e3a5f]/20">
+                                    <i data-lucide="calendar" class="w-7 h-7 text-[#1e3a5f]"></i>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-[#FDB813] text-sm mb-2">11:59 PM</div>
+                                    <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Registration Deadline</h3>
+                                    <p class="text-gray-500 text-sm mb-3">December 26, 2025</p>
+                                    <p class="text-gray-600">Last date to register for the hackathon</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Event 2 -->
+                        <div class="relative fade-up transition-delay-200">
+                            <div
+                                class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg z-10">
+                            </div>
+                            <div
+                                class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all mt-8 border-2 border-[#FDB813]">
+                                <div
+                                    class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-[#FDB813]">
+                                    <i data-lucide="rocket" class="w-7 h-7 text-white"></i>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-[#FDB813] text-sm mb-2">Full Days</div>
+                                    <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Hackathon Event</h3>
+                                    <p class="text-gray-500 text-sm mb-3">January 10-11, 2026</p>
+                                    <p class="text-gray-600">2-day intensive innovation sprint</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Event 3 -->
+                        <div class="relative fade-up transition-delay-400">
+                            <div
+                                class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg z-10">
+                            </div>
+                            <div
+                                class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all mt-8 border border-gray-200">
+                                <div
+                                    class="w-14 h-14 rounded-xl flex items-center justify-center mb-4 mx-auto bg-[#1e3a5f]/20">
+                                    <i data-lucide="clock" class="w-7 h-7 text-[#1e3a5f]"></i>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-[#FDB813] text-sm mb-2">TBA</div>
+                                    <h3 class="text-xl text-[#1e3a5f] mb-2 font-medium">Incubation Starts</h3>
+                                    <p class="text-gray-500 text-sm mb-3">February 2026</p>
+                                    <p class="text-gray-600">Selected teams begin incubation at IISc</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Timeline -->
+                <div class="md:hidden space-y-6">
+                    <!-- Event 1 Mobile -->
+                    <div class="relative pl-12 fade-right">
+                        <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-gradient-to-b from-[#FDB813] to-[#1e3a5f]">
+                        </div>
+                        <div
+                            class="absolute left-3 top-6 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg">
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#1e3a5f]/20">
+                                    <i data-lucide="calendar" class="w-6 h-6 text-[#1e3a5f]"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="text-[#FDB813] text-sm mb-1">11:59 PM</div>
+                                    <h3 class="text-lg text-[#1e3a5f] mb-1 font-medium">Registration Deadline</h3>
+                                    <p class="text-gray-500 text-sm mb-2">December 26, 2025</p>
+                                    <p class="text-gray-600 text-sm">Last date to register</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Event 2 Mobile -->
+                    <div class="relative pl-12 fade-right transition-delay-100">
+                        <div class="absolute left-6 top-14 bottom-0 w-0.5 bg-gradient-to-b from-[#FDB813] to-[#1e3a5f]">
+                        </div>
+                        <div
+                            class="absolute left-3 top-6 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg">
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg border-2 border-[#FDB813]">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#FDB813]">
+                                    <i data-lucide="rocket" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="text-[#FDB813] text-sm mb-1">Full Days</div>
+                                    <h3 class="text-lg text-[#1e3a5f] mb-1 font-medium">Hackathon Event</h3>
+                                    <p class="text-gray-500 text-sm mb-2">January 10-11, 2026</p>
+                                    <p class="text-gray-600 text-sm">2-day intensive sprint</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Event 3 Mobile -->
+                    <div class="relative pl-12 fade-right transition-delay-200">
+                        <div
+                            class="absolute left-3 top-6 w-6 h-6 rounded-full bg-[#FDB813] border-4 border-white shadow-lg">
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-[#1e3a5f]/20">
+                                    <i data-lucide="clock" class="w-6 h-6 text-[#1e3a5f]"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="text-[#FDB813] text-sm mb-1">TBA</div>
+                                    <h3 class="text-lg text-[#1e3a5f] mb-1 font-medium">Incubation Starts</h3>
+                                    <p class="text-gray-500 text-sm mb-2">February 2026</p>
+                                    <p class="text-gray-600 text-sm">Start of incubation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-16 fade-up">
+                    <a href="https://konfhub.com/msme-40-techsprint-national-hackathon-series-2025" target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-gradient-to-r from-[#FDB813] to-[#FFA000] text-white px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2 transform hover:scale-105 active:scale-95">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        Register Before Deadline
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Themes Section -->
+        <section id="themes" class="py-20 bg-white relative overflow-hidden">
+            <div class="absolute top-20 left-0 w-64 h-64 bg-[#FDB813] opacity-5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-0 w-96 h-96 bg-[#1e3a5f] opacity-5 rounded-full blur-3xl"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16 fade-up">
+                    <div class="inline-block mb-4">
+                        <span class="text-[#FDB813] text-sm uppercase tracking-wider">Focus Areas</span>
+                        <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">Innovation Themes</h2>
+                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">The problems are associated with one or more of
+                        the following themes</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Themes generated dynamically for brevity in pure HTML, but here is the manual block -->
+                    <!-- Theme 1 -->
+                    <div
+                        class="group relative fade-up transition-delay-0 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="activity" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    Production Monitoring</h3>
+                                <p class="text-gray-600 leading-relaxed">Real-time tracking and optimization of
+                                    production processes</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 2 -->
+                    <div
+                        class="group relative fade-up transition-delay-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="package" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    Asset Tracking</h3>
+                                <p class="text-gray-600 leading-relaxed">End-to-end visibility of assets and materials
+                                    throughout the supply chain</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 3 -->
+                    <div
+                        class="group relative fade-up transition-delay-200 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="clipboard-check" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    Quality Control</h3>
+                                <p class="text-gray-600 leading-relaxed">Automated inspection and quality assurance
+                                    systems</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 4 -->
+                    <div
+                        class="group relative fade-up transition-delay-0 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="shield-check" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    Health & Safety</h3>
+                                <p class="text-gray-600 leading-relaxed">Worker safety monitoring and hazard prevention
+                                    solutions</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 5 -->
+                    <div
+                        class="group relative fade-up transition-delay-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="wifi" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    IoT/CPS</h3>
+                                <p class="text-gray-600 leading-relaxed">Internet of Things and Cyber-Physical Systems
+                                    integration</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 6 -->
+                    <div
+                        class="group relative fade-up transition-delay-200 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="graduation-cap" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    Upskilling</h3>
+                                <p class="text-gray-600 leading-relaxed">Digital training and workforce development
+                                    platforms</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 7 -->
+                    <div
+                        class="group relative fade-up transition-delay-0 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="wrench" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    Maintenance</h3>
+                                <p class="text-gray-600 leading-relaxed">Predictive maintenance and equipment lifecycle
+                                    management</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 8 -->
+                    <div
+                        class="group relative fade-up transition-delay-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#FDB813] to-[#FFA000] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#FDB813] to-[#FFA000] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="lock" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    Cybersecurity</h3>
+                                <p class="text-gray-600 leading-relaxed">Protecting manufacturing systems from digital
+                                    threats</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theme 9 -->
+                    <div
+                        class="group relative fade-up transition-delay-200 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all border border-gray-100 overflow-hidden h-full">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] opacity-0 group-hover:opacity-5 transition-opacity">
+                            </div>
+                            <div class="relative z-10">
+                                <div
+                                    class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5680] flex items-center justify-center mb-6 shadow-lg group-hover:rotate-[360deg] transition-transform duration-700">
+                                    <i data-lucide="glasses" class="text-white w-8 h-8"></i>
+                                </div>
+                                <h3
+                                    class="text-2xl text-[#1e3a5f] mb-3 group-hover:text-[#FDB813] transition-colors font-medium">
+                                    AR/VR/MR</h3>
+                                <p class="text-gray-600 leading-relaxed">Immersive technologies for training, design,
+                                    and remote assistance</p>
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#FDB813] to-transparent opacity-10 rounded-bl-full">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 bg-gradient-to-br from-[#f5f7fa] to-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="conveyor" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                            <rect x="40" y="0" width="20" height="100" fill="#1e3a5f" />
+                            <circle cx="50" cy="20" r="8" fill="#FDB813" />
+                            <circle cx="50" cy="50" r="8" fill="#FDB813" />
+                            <circle cx="50" cy="80" r="8" fill="#FDB813" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#conveyor)" />
+                </svg>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16 fade-up">
+                    <div class="inline-block mb-4">
+                        <span class="text-[#FDB813] text-sm uppercase tracking-wider">The Process</span>
+                        <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">How It Works</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Your journey from registration to
+                        commercialisation in five simple steps</p>
+                </div>
+
+                <!-- Desktop Vertical Timeline -->
+                <div class="hidden md:block relative max-w-5xl mx-auto">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-1 -ml-0.5">
+                        <div class="h-full bg-gradient-to-b from-[#FDB813] via-[#1e3a5f] to-[#FDB813]"></div>
+                    </div>
+
+                    <div class="space-y-24">
+                        <!-- Step 1 -->
+                        <div class="relative flex items-center gap-8 flex-row fade-right transition-delay-0">
+                            <div class="w-1/2">
+                                <div
+                                    class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#FDB813]">
+                                    <div class="relative z-10 mb-6 flex justify-center">
+                                        <div
+                                            class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                            <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                                style="background: linear-gradient(135deg, #FDB813 0%, #FFA000 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                                <i data-lucide="user-plus" class="text-white w-9 h-9"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <h3 class="text-2xl mb-3 text-center text-[#FDB813] font-medium">Register</h3>
+                                        <p class="text-gray-600 text-center leading-relaxed">Complete your individual
+                                            registration with all required documents and credentials</p>
+                                    </div>
+                                    <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#FDB813]">
+                                        01</div>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                                <div
+                                    class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#FDB813] to-[#FFA000]">
+                                    <span class="text-xs opacity-80">STEP</span>
+                                    <span class="text-2xl font-bold">01</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2"></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="relative flex items-center gap-8 flex-row-reverse fade-left transition-delay-100">
+                            <div class="w-1/2">
+                                <div
+                                    class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#1e3a5f]">
+                                    <div class="relative z-10 mb-6 flex justify-center">
+                                        <div
+                                            class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                            <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                                style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5680 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                                <i data-lucide="video" class="text-white w-9 h-9"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <h3 class="text-2xl mb-3 text-center text-[#1e3a5f] font-medium">Webinars &
+                                            Workshops</h3>
+                                        <p class="text-gray-600 text-center leading-relaxed">Participate in expert-led
+                                            webinars and hands-on workshops to prepare for the hackathon</p>
+                                    </div>
+                                    <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#1e3a5f]">
+                                        02</div>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                                <div
+                                    class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#1e3a5f] to-[#2d5680]">
+                                    <span class="text-xs opacity-80">STEP</span>
+                                    <span class="text-2xl font-bold">02</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2"></div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative flex items-center gap-8 flex-row fade-right transition-delay-200">
+                            <div class="w-1/2">
+                                <div
+                                    class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#FDB813]">
+                                    <div class="relative z-10 mb-6 flex justify-center">
+                                        <div
+                                            class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                            <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                                style="background: linear-gradient(135deg, #FDB813 0%, #FFA000 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                                <i data-lucide="lightbulb" class="text-white w-9 h-9"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <h3 class="text-2xl mb-3 text-center text-[#FDB813] font-medium">Hackathon</h3>
+                                        <p class="text-gray-600 text-center leading-relaxed">2-day intensive sprint with
+                                            mentorship, prototyping, and pitching</p>
+                                    </div>
+                                    <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#FDB813]">
+                                        03</div>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                                <div
+                                    class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#FDB813] to-[#FFA000]">
+                                    <span class="text-xs opacity-80">STEP</span>
+                                    <span class="text-2xl font-bold">03</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2"></div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="relative flex items-center gap-8 flex-row-reverse fade-left transition-delay-300">
+                            <div class="w-1/2">
+                                <div
+                                    class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#1e3a5f]">
+                                    <div class="relative z-10 mb-6 flex justify-center">
+                                        <div
+                                            class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                            <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                                style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5680 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                                <i data-lucide="trophy" class="text-white w-9 h-9"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <h3 class="text-2xl mb-3 text-center text-[#1e3a5f] font-medium">Incubation</h3>
+                                        <p class="text-gray-600 text-center leading-relaxed">Selected teams receive
+                                            incubation support at Indian Institute of Science</p>
+                                    </div>
+                                    <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#1e3a5f]">
+                                        04</div>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                                <div
+                                    class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#1e3a5f] to-[#2d5680]">
+                                    <span class="text-xs opacity-80">STEP</span>
+                                    <span class="text-2xl font-bold">04</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2"></div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="relative flex items-center gap-8 flex-row fade-right transition-delay-0">
+                            <div class="w-1/2">
+                                <div
+                                    class="relative bg-gradient-to-br from-white via-white to-gray-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all border-2 overflow-hidden group hover:-translate-y-2 border-[#FDB813]">
+                                    <div class="relative z-10 mb-6 flex justify-center">
+                                        <div
+                                            class="relative group-hover:rotate-[360deg] group-hover:scale-115 transition-all duration-700">
+                                            <div class="w-20 h-20 flex items-center justify-center hex-mask"
+                                                style="background: linear-gradient(135deg, #FDB813 0%, #FFA000 100%); clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                                                <i data-lucide="rocket" class="text-white w-9 h-9"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <h3 class="text-2xl mb-3 text-center text-[#FDB813] font-medium">
+                                            Commercialisation</h3>
+                                        <p class="text-gray-600 text-center leading-relaxed">Register your startup and
+                                            launch it in the market with ongoing support</p>
+                                    </div>
+                                    <div class="absolute bottom-4 right-6 text-6xl font-bold opacity-5 text-[#FDB813]">
+                                        05</div>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                                <div
+                                    class="w-20 h-20 rounded-full flex flex-col items-center justify-center text-white shadow-2xl border-4 border-white bg-gradient-to-br from-[#FDB813] to-[#FFA000]">
+                                    <span class="text-xs opacity-80">STEP</span>
+                                    <span class="text-2xl font-bold">05</span>
+                                </div>
+                            </div>
+                            <div class="w-1/2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Vertical Flow -->
+                <div class="md:hidden space-y-8">
+                    <!-- Mobile Steps omitted for brevity but standard card layout -->
+                    <!-- ... Similar structure to desktop but simplified ... -->
+                </div>
+
+                <div
+                    class="mt-16 bg-gradient-to-r from-[#FDB813] to-[#FFA000] rounded-2xl p-8 md:p-12 text-white fade-up">
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl mb-2 font-bold">2-3</div>
+                            <div class="text-white/90">Members per Team</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2 font-bold">33hrs</div>
+                            <div class="text-white/90">Intensive Problem-Solving</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2 font-bold">IISc</div>
+                            <div class="text-white/90">Incubation Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Rules Section -->
+        <section id="rules" class="py-20 bg-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5"
+                style="background-image: linear-gradient(30deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f), linear-gradient(150deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f), linear-gradient(30deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f), linear-gradient(150deg, #1e3a5f 12%, transparent 12.5%, transparent 87%, #1e3a5f 87.5%, #1e3a5f); background-size: 80px 140px; background-position: 0 0, 0 0, 40px 70px, 40px 70px;">
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16 fade-up">
+                    <div class="inline-block mb-4">
+                        <span class="text-[#FDB813] text-sm uppercase tracking-wider">Guidelines</span>
+                        <div class="h-1 bg-gradient-to-r from-transparent via-[#FDB813] to-transparent mt-2"></div>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl text-[#1e3a5f] mb-4 font-medium">Hackathon Rules</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Everything you need to know about participation
+                        requirements and guidelines</p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Rule 1 -->
+                    <div class="fade-up transition-delay-0">
+                        <button
+                            class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                        <span>1</span>
+                                    </div>
+                                    <h3 class="text-xl text-[#1e3a5f] font-medium">Eligibility</h3>
+                                </div>
+                                <i data-lucide="chevron-down"
+                                    class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div class="rule-content hidden overflow-hidden">
+                            <div
+                                class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                                <ul class="space-y-3">
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">All participants must be aged over 18 years at
+                                            the time of registration</span></li>
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">Educational Qualification: Must hold at least a
+                                            bachelor's degree from a recognized university or institution</span></li>
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">Open to professionals, researchers, and
+                                            entrepreneurs</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rule 2 -->
+                    <div class="fade-up transition-delay-100">
+                        <button
+                            class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                        <span>2</span>
+                                    </div>
+                                    <h3 class="text-xl text-[#1e3a5f] font-medium">Registration</h3>
+                                </div>
+                                <i data-lucide="chevron-down"
+                                    class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div class="rule-content hidden overflow-hidden">
+                            <div
+                                class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                                <ul class="space-y-3">
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">Each participant must register individually
+                                            through the official portal</span></li>
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">All required documents must be submitted at the
+                                            time of application</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rule 3 -->
+                    <div class="fade-up transition-delay-200">
+                        <button
+                            class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                        <span>3</span>
+                                    </div>
+                                    <h3 class="text-xl text-[#1e3a5f] font-medium">Team Formation</h3>
+                                </div>
+                                <i data-lucide="chevron-down"
+                                    class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div class="rule-content hidden overflow-hidden">
+                            <div
+                                class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                                <ul class="space-y-3">
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">Teams of 2-3 members will be formed during the
+                                            hackathon</span></li>
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">Team formation happens through interaction
+                                            sessions at the event</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rule 4 -->
+                    <div class="fade-up transition-delay-300">
+                        <button
+                            class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                        <span>4</span>
+                                    </div>
+                                    <h3 class="text-xl text-[#1e3a5f] font-medium">Problem Statement Selection</h3>
+                                </div>
+                                <i data-lucide="chevron-down"
+                                    class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+                        <div class="rule-content hidden overflow-hidden">
+                            <div
+                                class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                                <ul class="space-y-3">
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">Each team will initially select three problem
+                                            statements from the published list</span></li>
+                                    <li class="flex gap-3 items-start"><i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i><span
+                                            class="text-gray-700 flex-1">Organizers will evaluate and allocate one
+                                            problem statement to each team</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-up transition-delay-300">
+                        <button
+                            class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                        <span>5</span>
+                                    </div>
+                                    <h3 class="text-xl text-[#1e3a5f] font-medium">
+                                        Mentorship & Assistance
+                                    </h3>
+                                </div>
+                                <i data-lucide="chevron-down"
+                                    class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+
+                        <div class="rule-content hidden overflow-hidden transition-all duration-300">
+                            <div
+                                class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                                <ul class="space-y-3">
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            Each team will be assigned one or more mentors based on expertise
+                                        </span>
+                                    </li>
+
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            Mentors will guide teams through idea validation, prototyping, and pitching
+                                        </span>
+                                    </li>
+
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            Mentors can advise on feasibility and approach but will not develop code or
+                                            prototypes
+                                        </span>
+                                    </li>
+
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            External assistance beyond mentors is not allowed unless specifically
+                                            approved
+                                            by organizers
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transition-delay-300">
+                        <button
+                            class="rule-btn w-full bg-white border-2 border-gray-200 rounded-xl p-6 text-left transition-all hover:border-[#FDB813] hover:shadow-md">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="number-box w-10 h-10 rounded-lg flex items-center justify-center transition-colors bg-[#1e3a5f] text-white">
+                                        <span>6</span>
+                                    </div>
+                                    <h3 class="text-xl text-[#1e3a5f] font-medium">
+                                        Hackathon Structure
+                                    </h3>
+                                </div>
+                                <i data-lucide="chevron-down"
+                                    class="chevron-icon w-6 h-6 text-gray-400 transition-transform duration-300"></i>
+                            </div>
+                        </button>
+
+                        <div class="rule-content hidden overflow-hidden transition-all duration-300">
+                            <div
+                                class="bg-gradient-to-br from-[#f8f9fa] to-white border-2 border-t-0 border-[#FDB813] rounded-b-xl p-6 -mt-2">
+                                <ul class="space-y-3">
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            Stages include: Problem Statement Revelation, Methodological Instructions,
+                                            Team Formation, and Brainstorming
+                                        </span>
+                                    </li>
+
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            Additional stages include Mentor Allocation, Idea Pitch, Concept Design, PoC
+                                            Prototype Development, and Final Pitch
+                                        </span>
+                                    </li>
+
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            Multiple pitch rounds and progress reviews will take place throughout the
+                                            event
+                                        </span>
+                                    </li>
+
+                                    <li class="flex gap-3 items-start">
+                                        <i data-lucide="check-circle-2"
+                                            class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-0.5"></i>
+                                        <span class="text-gray-700 flex-1">
+                                            A detailed schedule will be shared with registered participants
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-gradient-to-r from-[#1e3a5f] to-[#2d5680] rounded-2xl p-8 text-white fade-up">
+                    <h4 class="text-xl mb-3 font-medium">Important Note</h4>
+                    <p class="text-gray-100">The detailed hackathon schedule, including all stages and timings, will be
+                        shared with registered participants. Make sure to complete your registration and submit all
+                        required documents before the deadline.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Partners Section -->
+        <section id="partners" class="py-20 bg-gradient-to-br from-[#f5f7fa] to-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#1e3a5f] via-[#FDB813] to-[#1e3a5f]">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h2 class="sr-only">Our Partners</h2>
+
+                <div class="flex flex-col md:flex-row gap-8 items-center justify-center max-w-5xl mx-auto fade-up">
+                    <!-- Organized By -->
+                    <div class="flex flex-col items-center">
+                        <span class="text-[#1e3a5f] text-sm font-bold uppercase tracking-wider mb-4">Organized By</span>
+                        <div
+                            class="bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-[#FDB813] transition-all shadow-lg hover:-translate-y-1">
+                            <img src="assets/927a826e350689e0d10cf0a5f7b0465abfa56280.png" alt="Digital Manufacturing"
+                                class="h-20 w-auto object-contain">
+                        </div>
+                    </div>
+
+                    <!-- Supported By -->
+                    <div class="flex flex-col items-center">
+                        <span class="text-[#1e3a5f] text-sm font-bold uppercase tracking-wider mb-4">Supported By</span>
+                        <div class="flex gap-4 items-center">
+                            <div
+                                class="bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-[#FDB813] transition-all shadow-lg hover:-translate-y-1">
+                                <img src="assets/25bb9c3c412d1a328ce46c01267a897060baefbe.png"
+                                    alt="Ministry of Heavy Industries" class="h-20 w-auto object-contain">
+                            </div>
+                            <div
+                                class="bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-[#FDB813] transition-all shadow-lg hover:-translate-y-1">
+                                <img src="assets/7340f733f8dcc603405ae5c8e3a5d2ce7d1bb0d4.png" alt="Tata Steel"
+                                    class="h-20 w-auto object-contain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#1e3a5f] via-[#FDB813] to-[#1e3a5f]">
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800 relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FDB813] via-[#FFA000] to-[#FDB813]"></div>
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="gears" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="#1e3a5f" strokeWidth="2" />
+                        <circle cx="50" cy="50" r="10" fill="none" stroke="#1e3a5f" strokeWidth="2" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#gears)" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Logo & Description -->
+                <div class="md:col-span-2 fade-up">
+                    <div class="flex items-end gap-4 mb-4">
+                        <img src="assets/6da10831fbc863483ad9de887737f339bf3953ed.png" alt="TechSprint 4.0"
+                            class="h-24">
+                        <img src="assets/2d35bf81b57c2bd72d75e583350f0425c9266198.png" alt="4mlabs" class="h-16">
+                    </div>
+                    <h3 class="text-xl mb-3 font-medium">TechSprint 4.0</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">National Hackathon Series 2025-26</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Empowering Indian Manufacturing through Digital
+                        Innovation. A flagship initiative to accelerate Industry 4.0 adoption in MSMEs.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="fade-up transition-delay-100">
+                    <h4 class="text-lg mb-4 text-[#FDB813] font-medium">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about"
+                                class="text-gray-600 hover:text-[#FDB813] transition-colors flex items-center gap-2 group"><span
+                                    class="w-1.5 h-1.5 bg-[#FDB813] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>About</a>
+                        </li>
+                        <li><a href="#timeline"
+                                class="text-gray-600 hover:text-[#FDB813] transition-colors flex items-center gap-2 group"><span
+                                    class="w-1.5 h-1.5 bg-[#FDB813] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Timeline</a>
+                        </li>
+                        <li><a href="#themes"
+                                class="text-gray-600 hover:text-[#FDB813] transition-colors flex items-center gap-2 group"><span
+                                    class="w-1.5 h-1.5 bg-[#FDB813] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Themes</a>
+                        </li>
+                        <li><a href="#how-it-works"
+                                class="text-gray-600 hover:text-[#FDB813] transition-colors flex items-center gap-2 group"><span
+                                    class="w-1.5 h-1.5 bg-[#FDB813] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Process</a>
+                        </li>
+                        <li><a href="#rules"
+                                class="text-gray-600 hover:text-[#FDB813] transition-colors flex items-center gap-2 group"><span
+                                    class="w-1.5 h-1.5 bg-[#FDB813] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Rules</a>
+                        </li>
+                        <li><a href="#partners"
+                                class="text-gray-600 hover:text-[#FDB813] transition-colors flex items-center gap-2 group"><span
+                                    class="w-1.5 h-1.5 bg-[#FDB813] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>Partners</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="fade-up transition-delay-200">
+                    <h4 class="text-lg mb-4 text-[#FDB813] font-medium">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-1"></i>
+                            <span class="text-gray-600 text-sm">Indian Institute of Science<br>Bangalore, Karnataka,
+                                India</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-1"></i>
+                            <a href="mailto:veeraallam@iisc.ac.in"
+                                class="text-gray-600 hover:text-[#FDB813] transition-colors text-sm">veeraallam@iisc.ac.in</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-[#FDB813] flex-shrink-0 mt-1"></i>
+                            <span class="text-gray-600 text-sm">Contact details will be shared with registered
+                                participants</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="mb-12 bg-white rounded-2xl p-6 border border-gray-200 shadow-sm fade-up transition-delay-300">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-[#FDB813]"></i>
+                        <div>
+                            <h5 class="text-lg text-gray-800 font-medium">Indian Institute of Science</h5>
+                            <p class="text-gray-600 text-sm">CV Raman Road, Bengaluru - 560012</p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=Indian+Institute+of+Science+Bangalore" target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center gap-2 bg-[#FDB813] text-white px-6 py-2 rounded-full hover:bg-[#FFA000] transition-colors">
+                        View on Map <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-gray-300 fade-up transition-delay-300">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                    <p>© 2025 TechSprint 4.0. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-[#FDB813] transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-[#FDB813] transition-colors">Terms of Service</a>
+                        <a href="#" class="hover:text-[#FDB813] transition-colors">Code of Conduct</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h-2 bg-gradient-to-r from-[#FDB813] via-[#FFA000] to-[#FDB813]"></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
